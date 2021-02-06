@@ -70,21 +70,23 @@ router.get('/:id/update', routeGuard, (req, res, next) => {
 });
 
 
-/*router.post('/:id/update', routeGuardMiddleware, (req, res, next) => {
+router.post('/:id/update', routeGuard, (req, res, next) => {
     const id = req.params.id;
     const data = req.body;
-    Resource.findByIdAndUpdate(id, {
+    Offer.findByIdAndUpdate(id, {useFindAndModify: false}, {
       title: data.title,
-      url: data.url,
-      difficulty: data.difficulty,
-      image: data.image || undefined
+      image: data.image || undefined,
+      description: data.description,
+      typeof: data.typeof,
+      condition: data.condition,
+      url: data.url
     })
-      .then(resource => {
-        res.redirect(`/resource/${resource._id}`);
+      .then(offer => {
+        res.redirect(`/offer/${offer._id}`);
       })
       .catch(error => {
         next(error);
       });
-  });*/
+  });
 
 module.exports = router;
