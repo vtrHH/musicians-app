@@ -1,4 +1,3 @@
-
 # Models:
 
 ## Get-together:
@@ -16,26 +15,26 @@ Song (Upload?)
 
 # Routes Get-together:
 
-METHOD  PATH                PAGE                DESCRIPTION
+METHOD PATH PAGE DESCRIPTION
 
-GET     /                   Home                Landing Page // Display offers for different categories after sign up or Login
+GET / Home Landing Page // Display offers for different categories after sign up or Login
 
 ++++++ Offers +++++++
 
-GET     /offer/create       Create new offer    Displays offer create form --> router done
-POST    /offer/create       Create new offer    Add offer to database --> router done
+GET /offer/create Create new offer Displays offer create form --> router done
+POST /offer/create Create new offer Add offer to database --> router done
 
-GET     /offer/:id          Single offer        displays offer --> router done
+GET /offer/:id Single offer displays offer --> router done
 
-GET     /offer/:id/update   Update offer        display offer updating form
-POST    /offer/:id/update   Update offer        updates offer in database
+GET /offer/:id/update Update offer display offer updating form
+POST /offer/:id/update Update offer updates offer in database
 
-GET     /offer/:id/delete   Delete offer        display delete confirmation
-POST    /offer/:id/delete   Delete offer        deletes offer in database
+GET /offer/:id/delete Delete offer display delete confirmation
+POST /offer/:id/delete Delete offer deletes offer in database
 
-POST    /offer/:id/comment  Comment offer       handles comment form submission
+POST /offer/:id/comment Comment offer handles comment form submission
 
-GET     /error              Error               Displays error message
+GET /error Error Displays error message
 
 ++++++ Profile +++++++
 
@@ -45,7 +44,6 @@ GET /user/:id/update Update user display user updating form
 POST /user/:id/update Update user updates user in database
 
 GET /error Error Displays error message
-
 
 # Description of content
 
@@ -83,3 +81,5 @@ Button submit
 ## Delete offer:
 
 Button „Are you sure you want to delete“
+
+# Ideas & details for Group Functions needs to be added
