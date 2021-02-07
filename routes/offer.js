@@ -69,24 +69,49 @@ router.get('/:id/update', routeGuard, (req, res, next) => {
     });
 });
 
-
 router.post('/:id/update', routeGuard, (req, res, next) => {
-    const id = req.params.id;
-    const data = req.body;
-    Offer.findByIdAndUpdate(id, {useFindAndModify: false}, {
+  const id = req.params.id;
+  const data = req.body;
+  Offer.findByIdAndUpdate(
+    id,
+    { useFindAndModify: false },
+    {
       title: data.title,
       image: data.image || undefined,
       description: data.description,
       typeof: data.typeof,
       condition: data.condition,
       url: data.url
+    }
+  )
+    .then((offer) => {
+      res.redirect(`/offer/${offer._id}`);
     })
-      .then(offer => {
-        res.redirect(`/offer/${offer._id}`);
-      })
-      .catch(error => {
-        next(error);
-      });
-  });
+    .catch((error) => {
+      next(error);
+    });
+});
+
+router.get('/:id/delete', routeGuard, (req, res, next) => {
+  const id = req.params.id;
+  Offer.findById(id)
+    .then((offer) => {
+      res.render('offer/delete', { offer });
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
+
+router.post('/:id/delete', routeGuard, (req, res, next) => {
+  const id = req.params.id;
+  Offer.findByIdAndDelete(id)
+    .then(() => {
+      res.redirect('/');
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
 
 module.exports = router;
