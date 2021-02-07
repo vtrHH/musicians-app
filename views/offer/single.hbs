@@ -1,5 +1,21 @@
 <h1>{{offer.title}}</h1>
 
+<h2>{{offer.typeof}}</h2>
+
+<p>{{offer.description}}</p>
+
+{{#if offer}}
+
+<img src="{{offer.image.url}}"  alt="{{ offer.title }}" />
+
+<p>{{offer.condition}}</p>
+
+<p>{{offer.url}}</p>
+
+{{/if}}
+
+ <a href="/private/{{offer.creator._id}}">{{offer.creator.name}}</a>
+
 <a href="/offer/{{offer._id}}/update">Edit your offer</a>
 
 <a href="/offer/{{offer._id}}/delete">Delete this offer</a>

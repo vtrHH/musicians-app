@@ -11,6 +11,11 @@ router.get('/create', routeGuard, (req, res, next) => {
   res.render('offer/create');
 });
 
+router.get('/my-offers', routeGuard, (req, res, next) => {
+  res.render('offer/my-offers');
+});
+
+
 router.post(
   '/create',
   routeGuard,

@@ -16,7 +16,7 @@ const offerSchema = new mongoose.Schema({
   },
   typeof: {
     type: String,
-    enum: ['service', 'event', 'item'],
+    enum: ['Service', 'Event', 'Item'],
     required: true
   },
   condition: {

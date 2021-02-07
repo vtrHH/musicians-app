@@ -1,0 +1,12 @@
+<li id="offer-{{_id}}" class="offer-item">
+  <a href="/offer/{{_id}}">
+    {{#if image}}<img src="{{image}}" alt="{{title}}">{{/if}}
+    <div class="offer-contents">
+      <div class="offer-info">
+        <h4 class="offer-title">{{title}}</h4>
+      </div>
+      <small class="resource-meta"><span class="offer-category">{{category}}</span>  | Published by {{creator.name}} on {{{ date creationDate "DD/MM/YYYY" }}} at {{{ date creationDate "HH:mm" }}}</small>
+      {{> topiclist}}
+    </div>
+  </a>
+</li>

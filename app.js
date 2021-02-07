@@ -14,11 +14,14 @@ const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js')
 const baseRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 const offerRouter = require('./routes/offer');
+const hbs = require('hbs');
 
 const app = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+hbs.registerPartials('views/partials');
 
 app.use(serveFavicon(path.join(__dirname, 'public/images', 'favicon.ico')));
 app.use(
