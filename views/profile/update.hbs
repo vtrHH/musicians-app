@@ -1,0 +1,89 @@
+<h1>Update your profile</h1>
+
+<form method="POST" enctype="multipart/form-data">
+
+<label for="input-image">Update profile picture</label>
+    <input type="file" id="input-image" name="image" accept="image/png, image/jpeg">
+
+    <label for="input-description">About Me</label>
+    <textarea name="description" id="input-description" cols="30" rows="10" required></textarea>
+
+    <label for="input-experience">My experience Level</label>
+    <select name="experience" id="input-experience" required>
+        <option value="" selected disabled>Category</option>
+        <option value="Beginner">Beginner</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+        <option value="Pro">Pro</option>
+    </select>
+
+  <div>
+    <div>
+      <div><label for="input-skills"> <strong>My Skills</strong></label></div>
+      <input type="checkbox" id="input-checkbox-piano" value="Piano" name="skills" />
+      <label for="input-checkbox-piano">Piano</label>
+    </div>
+    <div>
+      <input type="checkbox" id="input-checkbox-drums" value="Drums" name="skills" />
+      <label for="input-checkbox-drums">Drums</label>
+    </div>
+    <div>
+      <input type="checkbox" id="input-checkbox-electrical_guitar" value="Electrical_Guitar" name="skills" />
+      <label for="input-checkbox-electrical_guitar">Electrical Guitar</label>
+    </div>
+    <div>
+      <input type="checkbox" id="input-checkbox-bass_guitar" value="Bass_Guitar" name="skills" />
+      <label for="input-checkbox-bass_guitar">Bass Guitar</label>
+    </div>
+    <div>
+      <input type="checkbox" id="input-checkbox-classical_guitar" value="Classical_Guitar" name="skills" />
+      <label for="input-checkbox-classical_guitar">Classical Guitar</label>
+    </div>
+    <div>
+      <input type="checkbox" id="input-checkbox-singing" value="Singing" name="skills" />
+      <label for="input-checkbox-singin">Singing</label>
+    </div>
+    <div>
+      <input type="checkbox" id="input-checkbox-keyboard" value="Keyboard" name="skills" />
+      <label for="input-checkbox-keyboard">Keyboard</label>
+    </div>
+    <div>
+      <input type="checkbox" id="input-checkbox-saxophone" value="Saxophone" name="skills" />
+      <label for="input-checkbox-saxophone">Saxophone</label>
+    </div>
+    <div>
+      <input type="checkbox" id="input-checkbox-trumpet" value="Trumpet" name="skills" />
+      <label for="input-checkbox-trumpet">Trumpet</label>
+    </div>
+    <div>
+      <input type="checkbox" id="input-checkbox-violin" value="Violin" name="skills" />
+      <label for="input-checkbox-violin">Violin</label>
+    </div>
+    <div>
+      <input type="checkbox" id="input-checkbox-cello" value="Cello" name="skills" />
+      <label for="input-checkbox-cello">Cello</label>
+    </div>
+    <div>
+      <input type="checkbox" id="input-checkbox-clarinet" value="Clarinet" name="skills" />
+      <label for="input-checkbox-clarinet">Clarinet</label>
+    </div>
+    <div>
+      <input type="checkbox" id="input-checkbox-harp" value="Harp" name="skills" />
+      <label for="input-checkbox-harp">Harp</label>
+    </div>
+    <div>
+      <input type="checkbox" id="input-checkbox-songwriting" value="Songwriting" name="skills" />
+      <label for="input-checkbox-songwriting">Songwriting</label>
+    </div>
+    <div>
+      <input type="checkbox" id="input-checkbox-dj" value="DJ" name="skills" />
+      <label for="input-checkbox-dj">DJ</label>
+    </div>
+  </div>
+
+    <label for="input-url">My Website</label>  
+    <input type="url" id="input-url" name="url" placeholder="URL" value="{{offer.url}}">
+
+    <button>Update your Profile</button>
+
+</form>

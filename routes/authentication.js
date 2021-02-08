@@ -1,8 +1,8 @@
 'use strict';
 
 const { Router } = require('express');
-
 const bcryptjs = require('bcryptjs');
+const uploadMiddleware = require('./../middleware/file-upload');
 const User = require('./../models/user');
 
 const router = new Router();
@@ -11,15 +11,18 @@ router.get('/sign-up', (req, res, next) => {
   res.render('sign-up');
 });
 
-router.post('/sign-up', (req, res, next) => {
-  const { name, email, password } = req.body;
+router.post('/sign-up', 
+uploadMiddleware.single('picture'),
+(req, res, next) => {
+  const { name, email, password, picture } = req.body;
   bcryptjs
     .hash(password, 10)
     .then((hash) => {
       return User.create({
         name,
         email,
-        passwordHashAndSalt: hash
+        passwordHashAndSalt: hash,
+        picture
       });
     })
     .then((user) => {
