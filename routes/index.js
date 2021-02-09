@@ -10,15 +10,10 @@ const Offer = require('./../models/offer');
 router.get(
   '/',
   routeGuard,
-  uploadMiddleware.single('image'),
   (req, res, next) => {
-    let image;
-    if (req.file) {
-      image = req.file.path;
-    }
     Offer.find()
       .then((offers) => {
-        res.render('home', { offers, image });
+        res.render('home', { offers });
       })
       .catch((error) => {
         next(error);
