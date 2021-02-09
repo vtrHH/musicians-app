@@ -1,2 +1,13 @@
-<h1>{{title}}</h1>
-<p>Welcome to Paradise</p>
+<h1>Welcome to our musicians app (the greates ever)</h1>
+
+{{#each offers}}
+
+<p>Titel: {{this.title}}</p>
+
+{{#if this.image}}
+<div>
+   Image: <img src="{{image}}" alt="{{title}}">
+</div>
+{{/if}}
+
+{{/each}}
