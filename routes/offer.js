@@ -77,9 +77,7 @@ router.get('/:id/update', routeGuard, (req, res, next) => {
 router.post('/:id/update', routeGuard, (req, res, next) => {
   const id = req.params.id;
   const data = req.body;
-  Offer.findByIdAndUpdate(
-    id,
-    { useFindAndModify: false },
+  Offer.findByIdAndUpdate( id, {useFindAndModify: false}, 
     {
       title: data.title,
       image: data.image || undefined,
@@ -87,8 +85,7 @@ router.post('/:id/update', routeGuard, (req, res, next) => {
       typeof: data.typeof,
       condition: data.condition,
       url: data.url
-    }
-  )
+    })
     .then((offer) => {
       res.redirect(`/offer/${offer._id}`);
     })
