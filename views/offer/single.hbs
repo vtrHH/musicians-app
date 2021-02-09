@@ -4,17 +4,17 @@
 
 <p>{{offer.description}}</p>
 
-{{#if offer}}
+{{#if offer.image}}
 
-<img src="{{offer.image.url}}"  alt="{{ offer.title }}" />
+<img src="{{offer.image}}"  alt="{{ offer.title }}" />
 
-<p>{{offer.condition}}</p>
+<!-- <p>{{offer.condition}}</p>
 
-<p>{{offer.url}}</p>
+<p>{{offer.url}}</p> -->
 
 {{/if}}
 
- <a href="/private/{{offer.creator._id}}">{{offer.creator.name}}</a>
+ <a href="/user/{{offer.creator._id}}">{{offer.creator.name}}</a>
 
 <a href="/offer/{{offer._id}}/update">Edit your offer</a>
 

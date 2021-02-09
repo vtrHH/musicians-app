@@ -1,0 +1,27 @@
+<h1>Welcome to {{user.name}}'s profile</h1>
+<span><strong>Name</strong>: {{user.name}}</span>
+<br />
+<span><strong>Email</strong>: {{user.email}}</span>
+<br>
+<span>
+   {{#if user.image }}
+   <img src="{{user.image}}" alt="{{user.name}}" class="user-image" />
+   {{/if }}
+   {{#if user.description }}
+   <p>{{user.description}}</p>
+   {{/if }}
+   {{#if user.experience }}
+   <p>{{user.experience}}</p>
+   {{/if }}
+   {{#each user.skills }}
+   <p>{{this}}</p>
+   {{/each }}
+    {{#if user.url }}
+   <p>{{user.url}}</p>
+   {{/if }}
+</span>
+
+<br>
+<br>
+
+<a href="/user/{{user._id}}/update">Update your profile</a>

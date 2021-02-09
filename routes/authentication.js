@@ -11,28 +11,30 @@ router.get('/sign-up', (req, res, next) => {
   res.render('sign-up');
 });
 
-router.post('/sign-up', 
-uploadMiddleware.single('picture'),
-(req, res, next) => {
-  const { name, email, password, picture } = req.body;
-  bcryptjs
-    .hash(password, 10)
-    .then((hash) => {
-      return User.create({
-        name,
-        email,
-        passwordHashAndSalt: hash,
-        picture
+router.post(
+  '/sign-up',
+  uploadMiddleware.single('picture'),
+  (req, res, next) => {
+    const { name, email, password, picture } = req.body;
+    bcryptjs
+      .hash(password, 10)
+      .then((hash) => {
+        return User.create({
+          name,
+          email,
+          passwordHashAndSalt: hash,
+          picture
+        });
+      })
+      .then((user) => {
+        req.session.userId = user._id;
+        res.redirect(`/user/${user._id}`);
+      })
+      .catch((error) => {
+        next(error);
       });
-    })
-    .then((user) => {
-      req.session.userId = user._id;
-      res.redirect('/private');
-    })
-    .catch((error) => {
-      next(error);
-    });
-});
+  }
+);
 
 router.get('/sign-in', (req, res, next) => {
   res.render('sign-in');
@@ -53,7 +55,7 @@ router.post('/sign-in', (req, res, next) => {
     .then((result) => {
       if (result) {
         req.session.userId = user._id;
-        res.redirect('/private');
+        res.redirect('`/user/${user._id}`');
       } else {
         return Promise.reject(new Error('Wrong password.'));
       }

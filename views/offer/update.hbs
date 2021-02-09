@@ -1,8 +1,8 @@
 <h1>{{offer.title}}</h1>
 
-<form method="POST" enctype="multipart/form-data">
+<form method="POST" action="/offer/{{offer._id}}/update" enctype="multipart/form-data">
     <label for="input-title">Title of your advertisement</label>
-    <input type="text" id="input-title" name="title" placeholder="Title of your item or service or event" required value="{{offer.title}}">
+    <input type="text" id="input-title" name="title" required value="{{offer.title}}">
 
     <label for="input-typeof">What do you want to offer</label>
     <select name="typeof" id="input-typeof" required>
