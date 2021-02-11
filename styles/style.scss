@@ -1,4 +1,6 @@
 
+@import 'tryout';
+
 
 $font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $grey: hsl(0, 0, 90%);
@@ -84,33 +86,4 @@ textarea {
 
 label {
   margin-bottom: 0.5em;
-}
-
-.post-frontpage {
-  border: thick double #32a1ce;
-  padding: 2em;
-}
-
-.image-frontpage {
-  img{
-  width: 22em;
-  }
-}
-.description-frontpage {
-  display: flex;
-  flex-direction: column;
-  
-}
-
-.user-image {
-  width: 6em;
-  height: 6em;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.profile-information {
-  display: flex;
-  align-items: center;
-  margin-bottom: 2em;
 }
