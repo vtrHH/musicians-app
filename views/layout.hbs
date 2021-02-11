@@ -12,7 +12,7 @@
       {{#if user}}
          <a href="/user/{{user._id}}">{{user.name}}'s Profile</a>
          <a href="/offer/create">Create an offer</a>
-         <a href="/offer/my-offers">Your offers</a>
+         <a href="/user/{{user._id}}/my-offers">Your offers</a>
         <form action="/authentication/sign-out" method="POST">
           <button>Sign Out</button>
         </form>

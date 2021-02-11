@@ -28,12 +28,12 @@
 </div> <br>
 {{/if}}
 
-<button><a href="#">Contact Provider</a></button>
+<button><a href="/user/{{_id}}">Contact Provider</a></button>
+<button><a href="/offer/{{this._id}}">Check out details of this offer</a></button>
 </div>
 <div class="creator-frontpage">
-      <p><strong>Creator:</strong>      {{this.creator}}</p>
+   <span>by {{creator.name}} on {{{ date creationDate "DD/MM/YYYY" }}} at {{{ date creationDate "HH:mm" }}}</span>
    </div>
 <br>
-
 
 {{/each}}

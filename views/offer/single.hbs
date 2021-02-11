@@ -1,3 +1,5 @@
+<section>
+
 <h1>{{offer.title}}</h1>
 
 <h2>{{offer.typeof}}</h2>
@@ -14,8 +16,34 @@
 
 {{/if}}
 
- <a href="/user/{{offer.creator._id}}">{{offer.creator.name}}</a>
+<a href="/user/{{offer.creator._id}}">{{offer.creator.name}}</a>
 
 <a href="/offer/{{offer._id}}/update">Edit your offer</a>
 
 <a href="/offer/{{offer._id}}/delete">Delete this offer</a>
+
+</section>
+
+<section>
+    <h4>Comments so far</h4>
+    <ul>
+    {{#each comments}}
+      <li>
+        <p>{{message}}</p>
+        <span>Published by {{creator.name}} on {{{ date creationDate "DD/MM/YYYY" }}} at {{{ date creationDate "HH:mm" }}}</span>
+      </li>
+    {{/each}}
+  </ul>
+</section>
+
+<footer>
+    <h4>Leave a comment</h4>
+    <form action="/offer/{{offer._id}}/comment" method="POST">
+    <label for="input-message">Message</label>
+    <textarea name="message" id="input-message" placeholder="Write a comment..."></textarea>
+
+    <button>Submit Comment</button>
+  </form>
+
+  
+</footer>
