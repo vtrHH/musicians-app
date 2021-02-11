@@ -2,12 +2,38 @@
 
 {{#each offers}}
 
-<p>Titel: {{this.title}}</p>
-
-{{#if this.image}}
-<div>
-   Image: <img src="{{image}}" alt="{{title}}">
+<div class="post-frontpage">
+   <div class="title-frontpage">
+      <p><strong>Title:</strong>      {{this.title}}</p>
+   </div>
+   <div class="typeof-frontpage">
+      <p><strong>Type:</strong> {{this.typeof}}</p>
+   </div>
+   <div class="description-frontpage">
+      <p> <strong>Description:</strong> <br> {{this.description}}</p>
+   </div> <br><br>
+   {{#if this.image}}
+<div class="image-frontpage">
+   <img src="{{image}}" alt="{{title}}">
+</div> <br>
+{{/if}}
+{{#if this.condition}}
+<div class="condition-frontpage">
+   <p>Condition: {{this.condition}}</p>
 </div>
 {{/if}}
+{{#if this.url}}
+<div class="url-frontpage">
+   <p>Website Link: <a href="{{this.url}}">{{this.url}}</a></p>
+</div> <br>
+{{/if}}
+
+<button><a href="#">Contact Provider</a></button>
+</div>
+<div class="creator-frontpage">
+      <p><strong>Creator:</strong>      {{this.creator}}</p>
+   </div>
+<br>
+
 
 {{/each}}
