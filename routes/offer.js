@@ -6,6 +6,7 @@ const routeGuard = require('./../middleware/route-guard');
 const uploadMiddleware = require('./../middleware/file-upload');
 
 const Offer = require('./../models/offer');
+const Comment = require('./../models/comment');
 
 router.get('/create', routeGuard, (req, res, next) => {
   res.render('offer/create');
@@ -45,14 +46,23 @@ router.post(
 
 router.get('/:id', routeGuard, (req, res, next) => {
   const id = req.params.id;
+  let offer;
   Offer.findById(id)
-    .then((offer) => {
+    .populate('creator')
+    .then((doc) => {
+      offer = doc;
       if (offer === null) {
         const error = new Error('Offer does not exist.');
         next(error);
       } else {
-        res.render('offer/single', { offer });
+        return Comment.find({ offer: id }).populate('creator');
       }
+    })
+    .then((comments) => {
+      res.render('offer/single', {
+        offer,
+        comments
+      });
     })
     .catch((error) => {
       if (error.kind === 'ObjectId') {
@@ -117,6 +127,22 @@ router.post('/:id/delete', routeGuard, (req, res, next) => {
   Offer.findByIdAndDelete(id)
     .then(() => {
       res.redirect('/');
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
+
+router.post('/:id/comment', routeGuard, (req, res, next) => {
+  const id = req.params.id;
+  const data = req.body;
+  Comment.create({
+    message: data.message,
+    creator: req.user._id,
+    offer: id
+  })
+    .then(() => {
+      res.redirect(`/offer/${id}`);
     })
     .catch((error) => {
       next(error);

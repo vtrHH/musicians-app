@@ -2,10 +2,15 @@
 
 {{#each offers}}
 
-<p>Titel: {{this.title}}</p>
+<h4>{{this.title}}</h4>
+<a href="/offer/{{this._id}}">Check out the offer here</a>
+
+{{#if this.image}}
 <div>
-    <img src="{{this.image}}" alt="">
-    
+  <img src="{{image}}" alt="{{title}}">
 </div>
+{{/if}}
+
+<span>by {{creator.name}} on {{{ date creationDate "DD/MM/YYYY" }}} at {{{ date creationDate "HH:mm" }}}</span>
 
 {{/each}}

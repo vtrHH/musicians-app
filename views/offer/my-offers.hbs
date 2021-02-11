@@ -2,26 +2,7 @@
 
 {{#each offers}}
 
-<h1>{{user.offer.title}}</h1>
+<p>Title: {{user.title}}</p>
 
-<h2>{{user.offer.typeof}}</h2>
-
-<p>{{user.offer.description}}</p>
-
-{{#if offer}}
-
-<p>{{user.offer.image}}</p>
-
-<p>{{user.offer.condition}}</p>
-
-<p>{{user.offer.url}}</p>
-
-{{/if}}
 
 {{/each}}
-
-<ul class="offer-list">
-  {{#each offers}}
-    {{> offeritem}}
-  {{/each}}
-</ul>

@@ -6,8 +6,9 @@ const routeGuard = require('./../middleware/route-guard');
 
 const Offer = require('./../models/offer');
 
-router.get('/', (req, res, next) => {
+router.get('/', routeGuard, (req, res, next) => {
   Offer.find()
+    .populate('creator')
     .then((offers) => {
       res.render('home', { offers });
     })

@@ -26,6 +26,7 @@ router.post(
     if (req.file) {
       image = req.file.path;
     }
+
     User.findByIdAndUpdate(id, {
       image: image,
       description: data.description,
@@ -41,5 +42,42 @@ router.post(
       });
   }
 );
+
+router.get('/user/:id/my-offers', (req, res, next) => {
+  Offer.find()
+    .populate('creator')
+    .then((offers) => {
+      res.render('my-offers', {
+        offers
+      });
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
+
+router.get('/user/:id/my-offers', (req, res, next) => {
+  const id = req.params.id;
+  let user;
+  User.findById(id)
+    .then((doc) => {
+      user = doc;
+      if (!user) {
+        next(createError(404));
+      } else {
+        return Offer.find({ creator: id }).populate('creator');
+      }
+    })
+    .then((offers) => {
+      res.render('my-offers', { offers });
+    })
+    .catch((error) => {
+      if (error.kind === 'ObjectId') {
+        next(createError(404));
+      } else {
+        next(error);
+      }
+    });
+});
 
 module.exports = router;
