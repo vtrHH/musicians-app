@@ -9,7 +9,9 @@ const Offer = require('./../models/offer');
 router.get('/', (req, res, next) => {
   Offer.find()
     .populate('creator')
+    .sort({ creationDate: -1 })
     .then((offers) => {
+      console.log(offers);
       res.render('home', { offers });
     })
     .catch((error) => {

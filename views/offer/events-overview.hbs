@@ -1,0 +1,11 @@
+<h1>Most recent event recommentations</h1>
+
+{{#each offers}}
+
+<p>{{this.title}}</p>
+
+{{#if this.url}}
+<a href="{{this.url}}">Check out more Details</a>
+{{/if}}
+
+{{/each }}

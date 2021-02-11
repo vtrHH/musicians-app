@@ -12,10 +12,6 @@ router.get('/create', routeGuard, (req, res, next) => {
   res.render('offer/create');
 });
 
-router.get('/my-offers', routeGuard, (req, res, next) => {
-  res.render('offer/my-offers');
-});
-
 router.post(
   '/create',
   routeGuard,
@@ -43,6 +39,36 @@ router.post(
       });
   }
 );
+
+router.get('/events', routeGuard, (req, res, next) => {
+  Offer.find({ typeof: 'Event' })
+    .then((offers) => {
+      res.render('offer/events-overview', { offers });
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
+
+router.get('/buy-and-sell', routeGuard, (req, res, next) => {
+  Offer.find({ typeof: 'Item' })
+    .then((offers) => {
+      res.render('offer/items-overview', { offers });
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
+
+router.get('/services', routeGuard, (req, res, next) => {
+  Offer.find({ typeof: 'Service' })
+    .then((offers) => {
+      res.render('offer/services-overview', { offers });
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
 
 router.get('/:id', routeGuard, (req, res, next) => {
   const id = req.params.id;

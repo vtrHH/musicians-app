@@ -1,5 +1,3 @@
-
-
 $font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $grey: hsl(0, 0, 90%);
 
@@ -92,14 +90,13 @@ label {
 }
 
 .image-frontpage {
-  img{
-  width: 22em;
+  img {
+    width: 22em;
   }
 }
 .description-frontpage {
   display: flex;
   flex-direction: column;
-  
 }
 
 .user-image {

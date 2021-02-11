@@ -1,0 +1,13 @@
+<h1>Services / Trainings / Coaching</h1>
+
+
+{{#each offers}}
+
+<p>{{this.title}}</p>
+<p>{{this.typeof}}</p>
+
+{{#if this.url}}
+<a href="{{this.url}}">Check out more Details</a>
+{{/if}}
+
+{{/each }}
