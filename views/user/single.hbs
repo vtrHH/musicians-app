@@ -1,23 +1,22 @@
-<h1>Welcome to {{user.name}}'s profile</h1>
-<span><strong>Name</strong>: {{user.name}}</span>
+<h1>Welcome to my profile</h1>
+<span><strong>Hi, my name is</strong> {{user.name}}</span>
 <br />
-<span><strong>Email</strong>: {{user.email}}</span>
 <br>
-<span>
    {{#if user.image }}
    <img src="{{user.image}}" alt="{{user.name}}" class="user-image" />
    {{/if }}
+   <span class="profile-information"></span>
    {{#if user.description }}
-   <p>{{user.description}}</p>
+   <p><strong>About me</strong> <br>{{user.description}}</p>
    {{/if }}
    {{#if user.experience }}
-   <p>{{user.experience}}</p>
+   <p><strong>My concert performance experience</strong><br> {{user.experience}}</p>
    {{/if }}
    {{#each user.skills }}
-   <p>{{this}}</p>
+   <p><strong>How do I rate my musical skills <br></strong>{{this}}</p>
    {{/each }}
     {{#if user.url }}
-   <p>{{user.url}}</p>
+   <p><strong>Have fun browsing my Website <br></strong>{{user.url}}</p>
    {{/if }}
 </span>
 
