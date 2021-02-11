@@ -6,6 +6,7 @@ const routeGuard = require('./../middleware/route-guard');
 const uploadMiddleware = require('./../middleware/file-upload');
 
 const User = require('./../models/user');
+const Offer = require('./../models/offer');
 
 router.get('/:id', routeGuard, (req, res, next) => {
   res.render('user/single');
@@ -43,7 +44,7 @@ router.post(
   }
 );
 
-router.get('/user/:id/my-offers', (req, res, next) => {
+router.get('/:id/my-offers', (req, res, next) => {
   const id = req.params.id;
   let user;
   User.findById(id)

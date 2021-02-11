@@ -1,8 +1,10 @@
 <h1>Check out your offers</h1>
 
+<div>
 {{#each offers}}
 
 <p>Title: {{this.title}}</p>
-
+<a href="/offer/{{this._id}}">Show offer details</a>
 
 {{/each}}
+</div>
