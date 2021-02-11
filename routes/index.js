@@ -11,7 +11,6 @@ router.get('/', (req, res, next) => {
     .populate('creator')
     .sort({ creationDate: -1 })
     .then((offers) => {
-      console.log(offers);
       res.render('home', { offers });
     })
     .catch((error) => {
