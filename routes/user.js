@@ -13,7 +13,10 @@ router.get('/:id', routeGuard, (req, res, next) => {
 });
 
 router.get('/:id/update', routeGuard, (req, res, next) => {
-  res.render('user/update');
+  const id = req.params.id;
+  User.findById(id).then((user) => {
+    res.render('user/update', { user: user });
+  });
 });
 
 router.post(
@@ -53,7 +56,9 @@ router.get('/:id/my-offers', (req, res, next) => {
       if (!user) {
         next(createError(404));
       } else {
-        return Offer.find({ creator: id }).populate('creator');
+        return Offer.find({ creator: id })
+          .populate('creator')
+          .sort({ creationDate: -1 });
       }
     })
     .then((offers) => {

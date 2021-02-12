@@ -3,13 +3,13 @@
 <form method="POST" action="/user/{{user._id}}/update" enctype="multipart/form-data">
 
 <label for="input-image">Update profile picture</label>
-    <input type="file" id="input-image" name="image" accept="image/png, image/jpeg">
+    <input type="file" id="input-image" name="image" placeholder="Update your image" required value="{{user.image}}" accept="image/png, image/jpeg">
 
-    <label for="input-description">About Me</label>
-    <textarea name="description" id="input-description" cols="30" rows="10" required></textarea>
+    <label for="input-description">Update your description</label>
+    <textarea name="description" id="input-description" cols="30" rows="5" required value="{{user.description}}"></textarea>
 
     <label for="input-experience">My experience Level</label>
-    <select name="experience" id="input-experience" required>
+    <select name="experience" id="input-experience">
         <option value="" selected disabled>Category</option>
         <option value="Beginner">Beginner</option>
         <option value="Intermediate">Intermediate</option>
@@ -82,7 +82,7 @@
   </div>
 
     <label for="input-url">My Website</label>  
-    <input type="url" id="input-url" name="url" placeholder="URL" value="{{offer.url}}">
+    <input type="url" id="input-url" name="url" placeholder="URL" value="{{user.url}}">
 
     <button>Update your Profile</button>
 
