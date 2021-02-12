@@ -1,0 +1,18 @@
+
+.user-image {
+  width: 6em;
+  height: 6em;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-information {
+  display: flex;
+  justify-content: flex-start;
+  align-items: space-around;
+  margin-bottom: 2em;
+}
+
+.posts {
+  padding-left: 18em;
+}
