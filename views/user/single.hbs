@@ -1,9 +1,16 @@
-
-<section class="page"> 
-<h1>Welcome to my profile</h1>
-<span><strong>Hi, my name is</strong> {{user.name}}</span>
-   {{#if user.image }}
+<div class="user-header"> 
+   <div> 
    <img src="{{user.image}}" alt="{{user.name}}" class="user-image" />
+   </div>
+   <h1>Welcome, {{user.name}}</h1> 
+</div>
+
+
+
+<div class="user-information">
+   <span><strong>Hi, my name is</strong> {{user.name}}</span>
+   {{#if user.image }}
+
    {{/if }}
    <span></span>
    {{#if user.description }}
@@ -20,8 +27,9 @@
    {{/if }}
 </span>
 
+</div>
+
 <br>
 <br>
 
-<a href="/user/{{user._id}}/update">Update your profile</a>
-</section>
+<a href="/user/{{user._id}}/update" class="btn" class="user-update">Update your profile</a>

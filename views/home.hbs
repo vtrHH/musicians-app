@@ -1,14 +1,11 @@
-<section class="posts-header">
-<section class="Welcome"><h1>Welcome to mooseicians, the app that brings great musicians together</h1></section>
+<h1>Welcome to mooseicians, the app that brings great musicians together</h1>
 
-<br>
 <button><a href="/offer/events">Events</a></button>
 <button><a href="/offer/buy-and-sell">Buy & Sell</a></button>
 <button><a href="/offer/services">Services / Trainings / Coaching</a></button>
 </section>
-<br>
-{{#each offers}}
 
+{{#each offers}}
 <section class="posts">
 <div class="post-frontpage">
    <div class="title-frontpage">
@@ -41,7 +38,7 @@
 <button><a href="/offer/{{this._id}}">Check out details of this offer</a></button>
 </div>
 <div class="creator-frontpage">
-   <span>by {{creator.email}} on {{{ date creationDate "DD/MM/YYYY" }}} at {{{ date creationDate "HH:mm" }}}</span>
+   <span>by {{creator.name}} on {{{ date creationDate "DD/MM/YYYY" }}} at {{{ date creationDate "HH:mm" }}}</span>
    </div>
 <br>
 </section>

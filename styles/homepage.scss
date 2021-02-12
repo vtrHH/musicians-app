@@ -1,33 +1,23 @@
 .welcome {
-    margin: auto;
-    width: 50%;
-    border: 3px solid green;
-    padding: 10px;
-  }
-  
-  .post-frontpage {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 70%;
-    padding-left: 3em;
-  }
-  
-  .image-frontpage {
-    img{
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+
+.post-frontpage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+}
+
+.image-frontpage {
+  img {
     width: 22em;
-    }
   }
-  .description-frontpage {
-    display: flex;
-    flex-direction: column; 
-  }
-
-  .posts {
-      padding-left: 18em;
-  }
-
-  .posts-header {
-    padding-left: 18em;
-    padding-top: 10em;
-  }
+}
+.description-frontpage {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,22 +1,28 @@
+@import 'variables';
+
 nav {
   position: fixed;
   bottom: 0;
   height: 100vh;
-  padding-top: 2em;
+  padding-top: 1em;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   color: black;
   a,
   button {
     padding: 1em 0.75em;
     cursor: pointer;
     transition: background-color 0.25s ease;
+    &:hover {
+      background-color: $light-grey;
+    }
   }
 }
 
 .logo {
   width: 6em;
-  height: 4em;
+  height: 6em;
 }
 
 .logo img {
@@ -24,11 +30,9 @@ nav {
   object-fit: cover;
 }
 
-.navbarstyle {
-  padding-top: 7em;
-}
-
 .signout {
-  padding-top: 7em;
-  padding-left: 1em;
+  border: 0;
+  text-align: left;
+  box-shadow: 0 0;
+  font-weight: bold;
 }
