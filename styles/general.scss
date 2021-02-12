@@ -1,16 +1,9 @@
 $font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $grey: hsl(0, 0, 90%);
 
-* {
-  &,
-  &:before,
-  &:after {
-    box-sizing: border-box;
-  }
-}
 
 body {
-  max-width: 52em;
+  max-width: 70em;
   padding: 0 1em;
   margin: 0 auto;
   font-family: sans-serif;
@@ -23,20 +16,7 @@ a {
   text-decoration: none;
 }
 
-nav {
-  display: flex;
-  a,
-  button {
-    padding: 1em 0;
-    border: 0;
-    &:not(:last-child) {
-      margin-right: 1em;
-    }
-    &:first-child {
-      margin-right: auto;
-    }
-  }
-}
+
 
 h1,
 h2,

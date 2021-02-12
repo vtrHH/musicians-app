@@ -8,13 +8,16 @@
   </head>
   <body>
     <nav>
-      <a href="/">Home</a>
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+    </div>
+      <a class="navbarstyle" href="/">Home</a>
       {{#if user}}
          <a href="/user/{{user._id}}">{{user.name}}'s Profile</a>
          <a href="/offer/create">Create an offer</a>
          <a href="/user/{{user._id}}/my-offers">Your offers</a>
         <form action="/authentication/sign-out" method="POST">
-          <button>Sign Out</button>
+          <h4 class="signout">Sign Out</h4>
         </form>
         {{else}}
         <a href="/authentication/sign-in">Sign In</a>
