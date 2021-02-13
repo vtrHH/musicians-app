@@ -42,6 +42,8 @@ router.post(
 
 router.get('/events', routeGuard, (req, res, next) => {
   Offer.find({ typeof: 'Event' })
+    .populate('creator')
+    .sort({ creationDate: -1 })
     .then((offers) => {
       res.render('offer/events-overview', { offers });
     })
@@ -52,6 +54,8 @@ router.get('/events', routeGuard, (req, res, next) => {
 
 router.get('/buy-and-sell', routeGuard, (req, res, next) => {
   Offer.find({ typeof: 'Item' })
+    .populate('creator')
+    .sort({ creationDate: -1 })
     .then((offers) => {
       res.render('offer/items-overview', { offers });
     })
@@ -62,6 +66,8 @@ router.get('/buy-and-sell', routeGuard, (req, res, next) => {
 
 router.get('/services', routeGuard, (req, res, next) => {
   Offer.find({ typeof: 'Service' })
+    .populate('creator')
+    .sort({ creationDate: -1 })
     .then((offers) => {
       res.render('offer/services-overview', { offers });
     })

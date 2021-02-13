@@ -1,11 +1,29 @@
 
-<h1>Check out your offers</h1>
+<h1>Your published offers</h1>
+
+<section> 
 
 <div>
 {{#each offers}}
-
 <p>Title: {{this.title}}</p>
+<p>Description: {{this.description}}</p>
+{{#if this.image}}
+<div class="image-frontpage">
+    <img src="{{this.image}}" alt="{{this.title}}">
+</div> 
+{{/if}}
+{{#if this.typeof}}
+<p>Category: {{this.typeof}}</p>
+{{/if}}
+{{#if this.condition}}
+<p>Condition: {{this.condition}}</p>
+{{/if}}
+{{#if this.url}}
+<p>More details: {{this.url}}</p>
+{{/if}}
+<br>
 <a href="/offer/{{this._id}}" class="btn">Show offer details</a>
-
-{{/each}}
+{{/each }}
 </div>
+
+</section>

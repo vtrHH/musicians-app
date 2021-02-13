@@ -1,12 +1,40 @@
-
 <h1>Most recent event recommentations</h1>
 
 {{#each offers}}
-
-<p>{{this.title}}</p>
-
+<section class="posts">
+<div class="post-frontpage">
+   <div class="title-frontpage">
+      <p><strong>Title:</strong>      {{this.title}}</p>
+   </div>
+   <div class="typeof-frontpage">
+      <p><strong>Type:</strong> {{this.typeof}}</p>
+   </div>
+   <div class="description-frontpage">
+      <p> <strong>Description:</strong> <br> {{this.description}}</p>
+   </div> <br><br>
+   {{#if this.image}}
+<div class="image-frontpage">
+   <img src="{{image}}" alt="{{title}}">
+</div> <br>
+{{/if}}
+{{#if this.condition}}
+<div class="condition-frontpage">
+   <p>Condition: {{this.condition}}</p>
+</div>
+{{/if}}
 {{#if this.url}}
-<a href="{{this.url}}" class="btn">Check out more Details</a>
+<div class="url-frontpage">
+   <p>Website Link: <a href="{{this.url}}">{{this.url}}</a></p>
+</div> <br>
 {{/if}}
 
-{{/each }}
+
+<button><a href="#">Contact Provider</a></button>
+<button><a href="/offer/{{this._id}}">Check out details of this offer</a></button>
+</div>
+<div class="creator-frontpage">
+   <span>by {{creator.name}} on {{{ date creationDate "DD/MM/YYYY" }}} at {{{ date creationDate "HH:mm" }}}</span>
+   </div>
+<br>
+</section>
+{{/each}}

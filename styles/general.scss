@@ -9,7 +9,7 @@ body {
   font-family: $font-sans;
   line-height: 2;
   .page {
-    padding-top: 13em;
+    padding-top: 10em;
     margin-left: 17em;
     flex: 1;
   }
@@ -69,11 +69,11 @@ label {
 .header {
   position: fixed;
   display: flex;
-    align-items: center;
-    min-height: 20vh;
-    width: 75%;
-    background-color: white;
-    border-bottom: 2px solid $petrol;
+  align-items: center;
+  min-height: 20vh;
+  width: 75%;
+  background-color: white;
+  border-bottom: 2px solid $petrol;
 }
 
 .slogan {
