@@ -1,35 +1,54 @@
 <div class="user-header"> 
    <div> 
+   {{#if user.image }}
    <img src="{{user.image}}" alt="{{user.name}}" class="user-image" />
+   {{/if }}
    </div>
    <h1>Welcome, {{user.name}}</h1> 
 </div>
 
-
+<section>
+<h3>Here is what you have provided as your background information so far:</h3>
 
 <div class="user-information">
-   <span><strong>Hi, my name is</strong> {{user.name}}</span>
-   {{#if user.image }}
 
+   <div class="user-information-item">
+   <p><strong>Your profile name is:</strong> {{user.name}}</p>
+   </div>
+  
+   {{#if user.description}}
+   <div class="user-information-item">
+   <p><strong>You would describe yourself as follows:</strong> {{user.description}}</p>
+   </div>
    {{/if }}
-   <span></span>
-   {{#if user.description }}
-   <p><strong>About me</strong> <br>{{user.description}}</p>
-   {{/if }}
-   {{#if user.experience }}
-   <p><strong>My concert performance experience</strong><br> {{user.experience}}</p>
-   {{/if }}
-   {{#each user.skills }}
-   <p><strong>How do I rate my musical skills <br></strong>{{this}}</p>
-   {{/each }}
-    {{#if user.url }}
-   <p><strong>Have fun browsing my Website <br></strong>{{user.url}}</p>
-   {{/if }}
-</span>
 
+   {{#if user.skills}}
+   <div class="user-information-item">
+   <p><strong>You bring the following skills:</strong> {{user.skills}}</p>
+   </div>
+   {{/if }}
+
+   {{#if user.interests}}
+   <div class="user-information-item">
+   <p><strong>Your interests are:</strong> {{user.interests}}</p>
+   </div>
+   {{/if }}
+
+   {{#if user.experience}}
+   <div class="user-information-item">
+   <p><strong>The experience level you set:</strong> {{user.experience}}</p>
+   </div>
+   {{/if }}
+
+   {{#if user.url}}
+   <div class="user-information-item">
+   <p><strong>The website you added:</strong> {{user.url}}</p>
+   </div>
+   {{/if }}
 </div>
+</section>
 
-<br>
-<br>
+<section class="user-update">
+ <a href="/user/{{user._id}}/update" class="btn">Update your profile</a>
+</section>
 
-<a href="/user/{{user._id}}/update" class="btn" class="user-update">Update your profile</a>

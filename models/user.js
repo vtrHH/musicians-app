@@ -21,28 +21,14 @@ const userSchema = new mongoose.Schema({
     type: String
     //required: true
   },
-  skills: [
-    {
-      type: String,
-      enum: [
-        'Piano',
-        'Drums',
-        'Electric_Guitar',
-        'Classical_Guitar',
-        'Bass_Guitar',
-        'Singing',
-        'Keyboard',
-        'Saxophone',
-        'Trumpet',
-        'Violin',
-        'Cello',
-        'Clarinet',
-        'Harp',
-        'Songwriting',
-        'DJ'
-      ]
-    }
-  ],
+  skills: {
+    type: String
+    //required: true
+  },
+  interests: {
+    type: String
+    //required: true
+  },
   experience: {
     type: String,
     enum: ['Beginner', 'Intermediate', 'Advanced', 'Pro']
