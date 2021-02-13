@@ -9,6 +9,7 @@ nav {
   flex-direction: column;
   justify-content: center;
   color: black;
+  
   a,
   button {
     padding: 1em 0.75em;
@@ -23,11 +24,13 @@ nav {
 .logo {
   width: 6em;
   height: 6em;
+  
 }
 
 .logo img {
   border-radius: 50%;
   object-fit: cover;
+  
 }
 
 .signout {

@@ -9,7 +9,7 @@ body {
   font-family: $font-sans;
   line-height: 2;
   .page {
-    padding-top: 2em;
+    padding-top: 13em;
     margin-left: 17em;
     flex: 1;
   }
@@ -67,8 +67,20 @@ label {
 }
 
 .header {
-  margin-top: 2em;
   position: fixed;
+  display: flex;
+    align-items: center;
+    min-height: 20vh;
+    width: 75%;
+    background-color: white;
+    border-bottom: 2px solid $petrol;
+}
+
+.slogan {
+  position: fixed;
+  display: flex;
+  margin-left: 11.3em;
+  margin-top: 0.5em;
 }
 
 .post-frontpage {
