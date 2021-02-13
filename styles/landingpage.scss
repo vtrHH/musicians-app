@@ -1,0 +1,71 @@
+body {
+  margin: 0 auto;
+  font-family: sans-serif;
+  font-family: $font-sans;
+  line-height: 2;
+  .page {
+    padding-top: 10em;
+    margin-left: 17em;
+    flex: 1;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  line-height: inherit;
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input:not([type='checkbox']),
+input:not([type='radio']),
+input:not([type='range']),
+textarea,
+select,
+button,
+.btn {
+  padding: 1em;
+  border: 1px solid $dark-grey;
+  border-radius: 0;
+  margin-bottom: 1em;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+textarea {
+  min-height: 8em;
+  resize: vertical;
+}
+
+label {
+  margin-bottom: 0.5em;
+}
+
+.landing-page {
+  background-image: url('/images/landing-page.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 700px;
+  display: flex;
+  
+}

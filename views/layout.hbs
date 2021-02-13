@@ -6,6 +6,7 @@
     <title>{{title}}</title>
     <link rel="stylesheet" href="/styles/main.css" />
   </head>
+  {{#if user}}
   <body>
     <header class="header">
       <div class="logo">
@@ -19,6 +20,11 @@
     </main>
     <script src="https://kit.fontawesome.com/5a39abe306.js" crossorigin="anonymous"></script>
   </body>
+  {{else}}
+  <body>
+    {{{body}}}
+  </body>
+  {{/if}}
 </html>
 
 

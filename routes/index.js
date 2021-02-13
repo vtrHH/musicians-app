@@ -7,6 +7,10 @@ const routeGuard = require('./../middleware/route-guard');
 const Offer = require('./../models/offer');
 
 router.get('/', (req, res, next) => {
+  res.render('landing-page');
+});
+
+router.get('/home', routeGuard, (req, res, next) => {
   Offer.find()
     .populate('creator')
     .sort({ creationDate: -1 })

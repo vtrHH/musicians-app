@@ -1,6 +1,6 @@
 <nav>
-    <a href="/"><i class="fas fa-home"></i> Home</a>
     {{#if user}}
+         <a href="/home"><i class="fas fa-home"></i> Home</a>
          <a href="/user/{{user._id}}"><i class="fas fa-user"></i> {{user.name}}'s Profile</a>
          <a href="/offer/create"><i class="fas fa-bullhorn"></i> Create an offer</a>
           <form action="/authentication/sign-out" method="POST">
