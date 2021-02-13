@@ -14,9 +14,13 @@ router.get('/:id', routeGuard, (req, res, next) => {
 
 router.get('/:id/update', routeGuard, (req, res, next) => {
   const id = req.params.id;
-  User.findById(id).then((user) => {
-    res.render('user/update', { user: user });
-  });
+  User.findById(id)
+    .then((user) => {
+      res.render('user/update', { user: user });
+    })
+    .catch((error) => {
+      next(error);
+    });
 });
 
 router.post(
@@ -30,12 +34,12 @@ router.post(
     if (req.file) {
       image = req.file.path;
     }
-
     User.findByIdAndUpdate(id, {
       image: image,
       description: data.description,
-      experience: data.experience,
       skills: data.skills,
+      interests: data.interests,
+      experience: data.experience,
       url: data.url
     })
       .then((user) => {
