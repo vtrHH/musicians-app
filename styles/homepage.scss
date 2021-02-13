@@ -1,23 +1,56 @@
-.welcome {
-  margin: auto;
-  width: 50%;
-  border: 3px solid green;
-  padding: 10px;
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 2em;
+  justify-content: space-evenly;
+  gap: 20px;
 }
 
-.post-frontpage {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 70%;
-}
 
 .image-frontpage {
   img {
-    width: 22em;
+    width: 10em;
   }
 }
+
+.post-frontpage {
+  border: thick double $petrol;
+  padding: 2em;
+  display: block;
+}
+
 .description-frontpage {
   display: flex;
   flex-direction: column;
+  max-width: 25em;
+}
+
+.buttons {
+  display: flex;
+  justify-content:center;
+  gap: 50px;
+  margin-bottom: 3em;
+  cursor: pointer;
+    transition: background-color 0.25s ease;
+  :hover {
+    background-color: $light-grey;
+  }
+  
+}
+
+.filterbutton {
+  border-radius: 12px;
+  background: none;
+
+}
+
+
+.headerfilter {
+  display: flex;
+  justify-content:center;
+}
+
+.filter {
+  display: flex;
+  justify-content:center;
 }
