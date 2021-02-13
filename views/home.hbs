@@ -1,12 +1,18 @@
+<span class="headerfilter">
 <h1>Market Place</h1>
+</span>
+<span class="filter">
+<p><h3>Filter by</h3></p>
+</span>
 
-<button><a href="/offer/events">Events</a></button>
-<button><a href="/offer/buy-and-sell">Buy & Sell</a></button>
-<button><a href="/offer/services">Services / Trainings / Coaching</a></button>
+<section class="buttons">
+<button class="filterbutton"><a href="/offer/events">Events</a></button>
+<button class="filterbutton"><a href="/offer/buy-and-sell">Buy & Sell</a></button>
+<button class="filterbutton"><a href="/offer/services">Services / Trainings / Coaching</a></button>
 </section>
-
-{{#each offers}}
 <section class="posts">
+{{#each offers}}
+
 <div class="post-frontpage">
    <div class="title-frontpage">
       <p><strong>Title:</strong>      {{this.title}}</p>
@@ -30,16 +36,15 @@
 {{#if this.url}}
 <div class="url-frontpage">
    <p>Website Link: <a href="{{this.url}}">{{this.url}}</a></p>
-</div> <br>
+</div> 
 {{/if}}
 
 
 <button><a href="#">Contact Provider</a></button>
 <button><a href="/offer/{{this._id}}">Check out details of this offer</a></button>
-</div>
 <div class="creator-frontpage">
    <span>by {{creator.name}} on {{{ date creationDate "DD/MM/YYYY" }}} at {{{ date creationDate "HH:mm" }}}</span>
    </div>
-<br>
-</section>
+</div>
 {{/each}}
+

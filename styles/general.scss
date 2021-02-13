@@ -2,7 +2,7 @@ $font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 @import 'variables';
 
 body {
-  max-width: 70em;
+  max-width: 90em;
   padding: 0 1em;
   margin: 0 auto;
   font-family: sans-serif;
@@ -81,19 +81,4 @@ label {
   display: flex;
   margin-left: 11.3em;
   margin-top: 0.5em;
-}
-
-.post-frontpage {
-  border: thick double $petrol;
-  padding: 2em;
-}
-
-.image-frontpage {
-  img {
-    width: 22em;
-  }
-}
-.description-frontpage {
-  display: flex;
-  flex-direction: column;
 }
