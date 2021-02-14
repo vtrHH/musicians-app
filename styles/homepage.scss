@@ -1,0 +1,24 @@
+@import 'variables';
+
+.btn-group-homepage {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  margin-bottom: 30px;
+  button {
+    border-radius: 5%;
+    background-color: $petrol;
+    border: 1px solid $petrol;
+    padding: 10px;
+    a {
+      color: white;
+      font-size: 1.2em;
+      text-decoration: none;
+    }
+    :hover {
+      color: $dark-grey;
+    }
+  }
+}

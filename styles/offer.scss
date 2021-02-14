@@ -3,9 +3,9 @@
 .offeritem-overview {
   display: flex;
   flex-wrap: wrap;
-  margin-right: 2em;
+  margin: 0 auto;
   justify-content: space-evenly;
-  gap: 25px;
+  gap: 10px;
 }
 
 .card-custom {
@@ -26,17 +26,33 @@
 .card-header-custom {
   background-color: $petrol;
   font-size: 1.2rem;
-  font-weight: bolder;
   text-align: center;
+  color: white;
+}
+
+.card-body-custom {
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .card-link-overview {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
   margin-bottom: 1rem;
 }
 
 .card-link-custom {
   cursor: pointer;
   color: $petrol;
+  a {
+    text-decoration: none;
+    :hover {
+      color: $dark-grey;
+    }
+  }
+}
+
+.card-text-custom {
+  line-height: 1;
 }
