@@ -1,4 +1,3 @@
-$font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 @import 'variables';
 
 body {
@@ -6,13 +5,8 @@ body {
   padding: 0 1em;
   margin: 0 auto;
   font-family: sans-serif;
-  font-family: $font-sans;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 2;
-  .page {
-    padding-top: 10em;
-    margin-left: 17em;
-    flex: 1;
-  }
 }
 
 a {
@@ -26,9 +20,13 @@ h3,
 p {
   margin: 0;
   line-height: inherit;
-  &:not(:last-child) {
-    margin-bottom: 1rem;
-  }
+}
+
+h1:not(:last-child),
+h2:not(:last-child),
+h3:not(:last-child),
+p:not(:last-child) {
+  margin-bottom: 1rem;
 }
 
 img {
@@ -49,36 +47,92 @@ select,
 button,
 .btn {
   padding: 1em;
-  border: 1px solid $dark-grey;
+  border: 2px solid white;
   border-radius: 0;
   margin-bottom: 1em;
-  font: inherit;
-  color: inherit;
+  font: white;
+  color: white;
   background-color: transparent;
 }
 
 textarea {
-  min-height: 8em;
+  min-height: 3em;
   resize: vertical;
 }
 
 label {
   margin-bottom: 0.5em;
+  color: white;
 }
 
-.header {
-  position: fixed;
+.signout {
+  border: 0;
+  text-align: left;
+  box-shadow: 0 0;
+  font-weight: bold;
+}
+
+.page-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  min-height: 20vh;
-  width: 75%;
-  background-color: white;
-  border-bottom: 2px solid $petrol;
+  margin-bottom: 3em;
+  padding-bottom: 1.3em;
+  background-color: $petrol;
+  h3,
+  h5 {
+    color: white;
+  }
 }
 
-.slogan {
-  position: fixed;
+.user-header {
   display: flex;
-  margin-left: 11.3em;
-  margin-top: 0.5em;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3em;
+  padding-bottom: 1.7em;
+  background-color: #0aaad1;
+}
+
+.user-image {
+  width: 10em;
+  height: 10em;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.1em;
+  border: 3px solid #dedede;
+}
+
+.user-information {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 2em;
+}
+
+.user-information-item {
+  margin-bottom: 1.5em;
+}
+
+.user-update {
+  display: flex;
+  justify-content: space-around;
+}
+
+.navbar-custom {
+  background-color: $petrol;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  a {
+    font-size: 1.3em;
+    color: white;
+  }
+  li {
+    padding-left: 30px;
+  }
+  button {
+    font-size: 1.3em;
+    color: white;
+    border: 1px solid white;
+  }
 }

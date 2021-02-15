@@ -1,0 +1,14 @@
+.authentication-form {
+  margin: 100px 200px auto;
+  padding: 20px;
+  background: hsl(192, 91%, 43%);
+  background: hsla(192, 91%, 43%, 0.8);
+  color: white;
+  border-top: 8px solid white;
+  border-bottom: 8px solid white;
+  transition: background 5s;
+  h2,
+  h4 {
+    text-align: center;
+  }
+}

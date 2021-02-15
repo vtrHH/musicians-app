@@ -158,7 +158,7 @@ router.post('/:id/delete', routeGuard, (req, res, next) => {
   const id = req.params.id;
   Offer.findByIdAndDelete(id)
     .then(() => {
-      res.redirect('/');
+      res.redirect('/home');
     })
     .catch((error) => {
       next(error);

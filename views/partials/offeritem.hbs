@@ -1,12 +1,16 @@
-<li id="offer-{{_id}}" class="offer-item">
-  <a href="/offer/{{_id}}">
-    {{#if image}}<img src="{{image}}" alt="{{title}}">{{/if}}
-    <div class="offer-contents">
-      <div class="offer-info">
-        <h4 class="offer-title">{{title}}</h4>
-      </div>
-      <small class="resource-meta"><span class="offer-category">{{category}}</span>  | Published by {{creator.name}} on {{{ date creationDate "DD/MM/YYYY" }}} at {{{ date creationDate "HH:mm" }}}</small>
-      {{> topiclist}}
-    </div>
-  </a>
-</li>
+<div class="card card-custom" style="width: 20rem;">
+  <div class="card-header card-header-custom">{{this.title}}</div>
+  {{#if this.image}}
+  <img src="{{this.image}}" class="card-img-top card-img-custom" alt="{{this.title}}">
+  {{else}}
+  <img src="/images/landing-page.jpg" class="card-img-top card-img-custom" alt="">
+  {{/if}}
+  <div class="card-body card-body-custom"> 
+  <p class="card-text card-text-custom"><strong>Description:</strong> {{this.description}}</p>
+  <p class="card-text card-text-custom">by {{creator.name}} on {{{ date creationDate "DD/MM/YYYY" }}}</p>
+  </div>
+  <div class="card-link-overview">
+    <a href="#" class="card-link card-link-custom">Contact provider</a>
+    <a href="/offer/{{this._id}}" class="card-link card-link-custom">See more details...</a>
+  </div>
+</div>

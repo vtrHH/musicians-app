@@ -1,5 +1,58 @@
 @import 'variables';
 
-.offer-section {
-  margin-top: 3em;
+.offeritem-overview {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+
+.card-custom {
+  border: 3px solid $petrol;
+  height: 400px;
+  border-radius: 2.5%;
+  background-color: $light-grey;
+}
+
+.card-img-custom {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  margin: 20px auto;
+  border-radius: 5%;
+}
+
+.card-header-custom {
+  background-color: $petrol;
+  font-size: 1.2rem;
+  text-align: center;
+  color: white;
+}
+
+.card-body-custom {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.card-link-overview {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.card-link-custom {
+  cursor: pointer;
+  color: $petrol;
+  a {
+    text-decoration: none;
+    :hover {
+      color: $dark-grey;
+    }
+  }
+}
+
+.card-text-custom {
+  line-height: 1;
 }

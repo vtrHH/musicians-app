@@ -1,13 +1,19 @@
-<nav>
-    {{#if user}}
-         <a href="/home"><i class="fas fa-home"></i> Home</a>
-         <a href="/user/{{user._id}}"><i class="fas fa-user"></i> {{user.name}}'s Profile</a>
-         <a href="/offer/create"><i class="fas fa-bullhorn"></i> Create an offer</a>
-          <form action="/authentication/sign-out" method="POST">
-          <button class="signout"> <i class="fas fa-sign-out-alt"></i> Sign Out</button>
-        </form>
-        {{else}}
-        <a href="/authentication/sign-in"><i class="fas fa-sign-in-alt"></i> Sign In</a>
-        <a href="/authentication/sign-up"><i class="fas fa-user-plus"></i> Sign Up</a>
-      {{/if}}
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <a class="navbar-brand" href="/home">mooseician</a>
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/home"><i class="fas fa-home"></i> Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/user/{{user._id}}"><i class="fas fa-user"></i> {{user.name}}'s Profile</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" href="/offer/create"><i class="fas fa-bullhorn"></i> Create an offer</a>
+      </li>
+    </ul>
+      <form class="form-inline my-2 my-lg-0" action="/authentication/sign-out" method="POST">
+      <button class="nav-link" type="submit"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+      </form>
+  </div>
 </nav>
