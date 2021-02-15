@@ -9,12 +9,16 @@
   </head>
   {{#if user}}
   <body>
+    <div id="page-container"> 
      {{> navbar}}
+     <div id="content-wrap"> 
       {{{body}}}
     <script src="https://kit.fontawesome.com/5a39abe306.js" crossorigin="anonymous"></script>
-    <footer class="footer">
+    </div>
+    <footer id="footer">
       <p>Made with love by Melanie Buck and Verena Traub</p>
     </footer>
+    </div>
   </body>
   {{else}}
   <body>

@@ -2,7 +2,7 @@
 <h3>Please add all details of your offer</h3>
 </section>
 
-<form method="POST" enctype="multipart/form-data">
+<form class="form" method="POST" enctype="multipart/form-data">
     <label for="input-title">Title of your advertisement</label>
     <input type="text" id="input-title" name="title" placeholder="Title of your item or service or event" required>
 
@@ -14,8 +14,8 @@
         <option value="Item">Item</option>
     </select>
 
-    <label for="input-description">Add some more details for us</label>
-    <textarea name="description" id="input-description" cols="30" rows="5" required></textarea>
+    <label for="input-description">Description</label>
+    <textarea name="description" id="input-description" placeholder="Let us know more details about what you want to offer"required></textarea>
 
     <label for="input-image">Add your image</label>
     <input type="file" id="input-image" name="image" accept="image/png, image/jpeg">

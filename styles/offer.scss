@@ -9,10 +9,11 @@
 }
 
 .card-custom {
+  margin-top: 2.5rem;
   border: 3px solid $petrol;
   height: 400px;
   border-radius: 2.5%;
-  background-color: $light-grey;
+  background-color: hsla(192, 0%, 79%, 0.7);
 }
 
 .card-img-custom {
@@ -39,7 +40,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .card-link-custom {
@@ -48,6 +49,8 @@
   a {
     text-decoration: none;
     :hover {
+      outline: none;
+      box-shadow: none;
       color: $dark-grey;
     }
   }
@@ -55,4 +58,39 @@
 
 .card-text-custom {
   line-height: 1;
+}
+
+.offer-form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  button {
+    padding: 1em;
+    border-radius: 0;
+    margin-bottom: 1em;
+    border: 1px solid $petrol;
+    font: white;
+    background-color: $petrol;
+    font-size: 1.2em;
+    outline: none;
+    box-shadow: none;
+  }
+  ::placeholder {
+    color: white;
+  }
+
+  textarea {
+    min-height: 3em;
+    resize: vertical;
+    font: white;
+    outline: none;
+    box-shadow: none;
+  }
+
+  label {
+    margin-bottom: 0.5em;
+    color: white;
+    font-size: 1.3em;
+  }
 }

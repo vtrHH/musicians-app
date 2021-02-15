@@ -2,7 +2,7 @@
 <h3>Update your profile</h3>
 </section>
 
-<form method="POST" action="/user/{{user._id}}/update" enctype="multipart/form-data">
+<form class="form" method="POST" action="/user/{{user._id}}/update" enctype="multipart/form-data">
 
 <label for="input-image">Update profile picture</label>
 <input type="file" id="input-image" name="image" value="{{user.image}}" accept="image/png, image/jpeg">

@@ -2,7 +2,7 @@
 <h3>{{offer.title}}</h3>
 </section>
 
-<form method="POST" action="/offer/{{offer._id}}/update" enctype="multipart/form-data">
+<form class="form" method="POST" action="/offer/{{offer._id}}/update" enctype="multipart/form-data">
     <label for="input-title">Title of your advertisement</label>
     <input type="text" id="input-title" name="title" required value="{{offer.title}}">
 

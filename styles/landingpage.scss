@@ -5,12 +5,12 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  height: 100vh;
 }
 
 .landing-page-intro {
-  margin: 100px 200px auto;
-  padding: 20px;
+  margin: 10rem auto;
+  padding: 5em;
+  width: 70%;
   background: hsl(192, 91%, 43%);
   background: hsla(192, 91%, 43%, 0.8);
   color: white;
