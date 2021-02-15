@@ -1,7 +1,11 @@
 @import 'variables';
 
 body {
-  max-width: 90em;
+  background: url('/images/background.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
   padding: 0 1em;
   margin: 0 auto;
   font-family: sans-serif;
@@ -121,6 +125,7 @@ label {
 
 .navbar-custom {
   background-color: $petrol;
+  margin-top: 20px;
   padding-top: 1em;
   padding-bottom: 1em;
   a {
@@ -131,8 +136,21 @@ label {
     padding-left: 30px;
   }
   button {
+    margin-top: 10px;
     font-size: 1.3em;
     color: white;
     border: 1px solid white;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: $petrol;
+  margin-top: 20px;
+  padding: 1em;
+  p {
+    color: white;
+    font-size: 1.2em;
   }
 }
