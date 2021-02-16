@@ -1,31 +1,14 @@
 <section class="page-header">
-<h3>Your published offers</h3>
+   <h3>Your published offers</h3>
 </section>
 
 
-<section> 
-
-<div>
-{{#each offers}}
-<p>Title: {{this.title}}</p>
-<p>Description: {{this.description}}</p>
-{{#if this.image}}
-<div class="image-frontpage">
-    <img src="{{this.image}}" alt="{{this.title}}">
-</div> 
-{{/if}}
-{{#if this.typeof}}
-<p>Category: {{this.typeof}}</p>
-{{/if}}
-{{#if this.condition}}
-<p>Condition: {{this.condition}}</p>
-{{/if}}
-{{#if this.url}}
-<p>More details: {{this.url}}</p>
-{{/if}}
+<section class="offeritem-overview">
+   {{#each offers}}
+   <div> 
+   {{> offeroverview}} <br>
+   </div>
+   {{/each}}
+</section>
 <br>
-<a href="/offer/{{this._id}}" class="btn">Show offer details</a>
-{{/each }}
-</div>
 
-</section>
