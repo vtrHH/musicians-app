@@ -1,4 +1,29 @@
+<input
+      id="pac-input"
+      class="controls"
+      type="text"
+      placeholder="Search Box"
+    />
 
-<div id="map"> Welcome little map </div>
+<div id="map"></div>
 <script src="scripts/map.js"></script>
 {{>googlemapsscript}}
+
+<form class="form" method="POST">
+    <label for="input-name">Name</label>
+    <input type="text" id="input-name" name="name" placeholder="Name of the location">
+
+    <label for="input-latitude">Location Latitude</label>
+    <input type="text" id="input-latitude" name="latitude" placeholder="latitude of the location">
+
+    <label for="input-longitude">Location Longitude</label>
+    <input type="text" id="input-longitude" name="longitude" placeholder="longitude of the location">
+
+    <label for="input-rating">Your rating</label>
+    <input type="text" id="input-rating" name="rating" placeholder="Your rating of the location">
+
+    <label for="input-message">Your Message</label>
+    <input type="text" id="input-message" name="message" placeholder="Add some stuff">
+
+    <button>Add your input</button>
+</form>
