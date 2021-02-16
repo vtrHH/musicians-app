@@ -16,6 +16,7 @@ const baseRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 const offerRouter = require('./routes/offer');
 const userRouter = require('./routes/user');
+const locationRouter = require('./routes/location');
 
 const hbs = require('hbs');
 
@@ -67,6 +68,7 @@ app.use('/', baseRouter);
 app.use('/authentication', authenticationRouter);
 app.use('/offer', offerRouter);
 app.use('/user', userRouter);
+app.use('/location', locationRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

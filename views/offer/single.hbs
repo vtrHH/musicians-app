@@ -1,56 +1,16 @@
 <section class="page-header">
-<h3>{{offer.title}}</h3>
+   <h3>Offer created</h3>
 </section>
 
-<section>
-
-<div>
-<h4>Category of the offer: {{offer.typeof}}</h4>
-
-<p>More details: {{offer.description}}</p>
-
-{{#if offer.image}}
-<img src="{{offer.image}}" class="image-frontpage" alt="{{ offer.title }}" />
-{{/if}}
-
-{{#if offer.condition}}
-<p>{{offer.condition}}</p>
-{{/if}}
-
-{{#if offer.url}}
-<p>{{offer.url}}</p>
-{{/if}}
- <span>Created on {{{ date creationDate "DD/MM/YYYY" }}} at {{{ date creationDate "HH:mm" }}}</span>
-</div>
+<section class="offeritem-overview">
+   <div> 
+   {{> singleitem}}
+   </div> <br>
+<section class="btn-group-homepage">
+  {{#if user}}
+<button><a href="/offer/{{offer._id}}/update">Edit Offer</a></button>
+<button><a href="/offer/{{offer._id}}/delete">Delete Offer</a></button>
+{{/if }}
 </section>
 
-<section class="offer-section">
-<a href="/offer/{{offer._id}}/update" class="btn">Edit your offer</a>
-<a href="/offer/{{offer._id}}/delete" class="btn">Delete this offer</a> 
 </section>
-
-
-<section class="offer-section">
-    <h4>Comments so far</h4>
-    <ul>
-    {{#each comments}}
-      <li>
-        <p>{{message}}</p>
-        <span>Published by {{creator.name}} on {{{ date creationDate "DD/MM/YYYY" }}} at {{{ date creationDate "HH:mm" }}}</span>
-      </li>
-    {{/each}}
-  </ul>
-</section>
-
-<footer>
-    <h4>Leave a comment</h4>
-    <form action="/offer/{{offer._id}}/comment" method="POST">
-    <label for="input-message">Message</label>
-    <textarea name="message" id="input-message" placeholder="Write a comment..."></textarea>
-
-    <button>Submit Comment</button>
-  </form>
-
-  
-</footer>
-
