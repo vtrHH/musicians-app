@@ -4,6 +4,10 @@ const express = require('express');
 const router = new express.Router();
 const routeGuard = require('./../middleware/route-guard');
 const uploadMiddleware = require('./../middleware/file-upload');
+const dotenv = require('dotenv');
+dotenv.config();
+const nodemailer = require('nodemailer');
+
 
 const Offer = require('./../models/offer');
 const Comment = require('./../models/comment');
@@ -11,6 +15,32 @@ const Comment = require('./../models/comment');
 router.get('/create', routeGuard, (req, res, next) => {
   res.render('offer/create');
 });
+
+router.get('/send-email', routeGuard, (req, res, next) => {
+  res.render('offer/contactform');
+});
+
+router.post('/send-email', (req, res, next) => {
+  let { email, subject, message } = req.body;
+  const transport = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: 'mooseicians@gmail.com',
+      pass: 'Malta123!'
+    }
+  });
+  transport.sendMail({
+    from: 'mooseicians@gmail.com',
+    to: email,
+    subject: subject, 
+    text: message,
+    html: `<b>${message}</b>`
+  })
+  .then(info => res.render('offer/message', {email, subject, message, info}))
+  .catch(error => console.log(error));
+});
+
+
 
 router.post(
   '/create',
