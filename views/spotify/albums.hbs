@@ -1,0 +1,15 @@
+<h1 class="Results1">Albums found</h1>
+
+<section class='search-results'>
+ 		{{#each albums}}
+ 		<div class='single-result'>
+			 <div class='single-result-image'>
+ 			<img src="{{this.images.[2].url}}"  alt="{{ this.name }}" />
+ 			</div>
+			<div class='single-result-information'>
+ 				<h4>{{ this.name }}</h4>
+ 				<a href="/tracks/{{ this.id }}" class="button">View Tracks</a>
+ 			</div>
+ 		</div>
+ 		{{/each}}
+</section>

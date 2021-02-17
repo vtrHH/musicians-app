@@ -1,0 +1,21 @@
+<section class='search-results'></section>
+ 	<table class="track-table" >
+ 		<tr>
+ 			<thead>
+ 				<th class='tracks-header'>Title</th>
+ 				<th class='tracks-header'>Listen</th>
+ 			</thead>
+ 		</tr>
+ 		<tbody>
+ 			{{#each tracks}}
+             <tr>
+                 <td>{{ this.name }}</td>
+                 <td><audio
+         Controls
+         src="{{ this.preview_url }}">
+     </audio></td>
+             </tr>
+ 			{{/each}}
+ 		</tbody>
+ 	</table>
+</section> 

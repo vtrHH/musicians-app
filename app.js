@@ -11,12 +11,29 @@ const sassMiddleware = require('node-sass-middleware');
 const serveFavicon = require('serve-favicon');
 const basicAuthenticationDeserializer = require('./middleware/basic-authentication-deserializer.js');
 const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js');
+const SpotifyWebApi = require('spotify-web-api-node');
+
+const spotifyApi = new SpotifyWebApi({
+  clientId: process.env.CLIENT_ID,
+  clientSecret: process.env.CLIENT_SECRET
+});
+
+spotifyApi
+  .clientCredentialsGrant()
+  .then((data) => spotifyApi.setAccessToken(data.body['access_token']))
+  .catch((error) =>
+    console.log('Something went wrong when retrieving an access token', error)
+  );
+
 
 const baseRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 const offerRouter = require('./routes/offer');
 const userRouter = require('./routes/user');
 const locationRouter = require('./routes/location');
+const musicRouter = require('./routes/music');
+
+require('dotenv').config();
 
 const hbs = require('hbs');
 
@@ -69,6 +86,7 @@ app.use('/authentication', authenticationRouter);
 app.use('/offer', offerRouter);
 app.use('/user', userRouter);
 app.use('/location', locationRouter);
+app.use('/music', musicRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

@@ -22,4 +22,5 @@ router.get('/home', routeGuard, (req, res, next) => {
     });
 });
 
+
 module.exports = router;
