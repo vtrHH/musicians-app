@@ -8,7 +8,9 @@ const router = new express.Router();
 const routeGuard = require('./../middleware/route-guard');
 
 router.get('/', routeGuard, (req, res, next) => {
-  res.render('location/overview');
+  Location.find().then((locations) => {
+    res.render('location/overview', { locations });
+  });
 });
 
 router.post('/', routeGuard, (req, res, next) => {
@@ -23,7 +25,6 @@ router.post('/', routeGuard, (req, res, next) => {
     creator: req.user._id
   })
     .then((location) => {
-      console.log(location);
       res.redirect('/location');
     })
     .catch((error) => {

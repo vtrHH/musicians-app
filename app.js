@@ -25,7 +25,6 @@ spotifyApi
     console.log('Something went wrong when retrieving an access token', error)
   );
 
-
 const baseRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 const offerRouter = require('./routes/offer');

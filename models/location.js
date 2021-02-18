@@ -4,36 +4,36 @@ const mongoose = require('mongoose');
 
 const locationSchema = new mongoose.Schema(
   {
-    name: {
-      type: String,
-      required: true
-    },
-    location: {
-      coordinates: [
-        {
-          type: Number,
-          min: -180,
-          max: 180
-        }
-      ],
+    geometry: {
       type: {
         type: String,
-        default: 'Point',
-        required: true
+        enum: ['Point']
+      },
+      coordinates: {
+        type: [Number],
+        min: -180,
+        max: 180
       }
     },
-    rating: {
-      type: Number,
-      min: 1,
-      max: 5,
-      default: 4
-    },
-    message: {
-      type: String
-    },
-    creator: {
-      type: mongoose.Types.ObjectId,
-      ref: 'User'
+    properties: {
+      name: {
+        type: String,
+        required: true
+      },
+
+      rating: {
+        type: Number,
+        min: 1,
+        max: 5,
+        default: 4
+      },
+      message: {
+        type: String
+      },
+      creator: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User'
+      }
     }
   },
   {
