@@ -11,6 +11,11 @@ const offerSchema = new mongoose.Schema(
     image: {
       type: String
     },
+    points: {
+      type: Number,
+      required: true,
+      default: 0
+    },
     description: {
       type: String,
       required: true
