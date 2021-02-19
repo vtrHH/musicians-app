@@ -19,19 +19,19 @@ spotifyApi
     console.log('Something went wrong when retrieving an access token', error)
   );
 
+router.get('/', routeGuard, (req, res) => {
+  res.render('spotify/home');
+});
 
-  router.get('/', routeGuard , (req, res) => {
-        res.render('spotify/home');
-  });
-  
-  router.get('/artist-search', routeGuard , (req, res) => {
-    spotifyApi
-      .searchArtists(req.query.q)
-      .then((data) => {
-        res.render('spotify/artist-search-results', { artists: data.body.artists.items });
-      })
-      .catch((error) => console.log(error));
-  });
+router.get('/artist-search', routeGuard, (req, res) => {
+  spotifyApi
+    .searchArtists(req.query.q)
+    .then((data) => {
+      res.render('spotify/artist-search-results', {
+        artists: data.body.artists.items
+      });
+    })
+    .catch((error) => console.log(error));
 });
 
 router.get('/albums/:id', routeGuard, (req, res) => {

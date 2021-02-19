@@ -20,9 +20,7 @@ L.tileLayer(
   }
 ).addTo(map);
 
-//////////////////// Adding already saved locations to the map ////////////////////
-
-L.geoJson(locations).addTo(map);
+//////////////////// Showing already saved locations to the map ////////////////////
 
 //////////////////// Getting Location when clicking on map ////////////////////
 function onMapClick(event) {
