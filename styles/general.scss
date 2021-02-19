@@ -19,9 +19,9 @@ body {
 }
 
 #content-wrap {
-  padding-bottom: 7rem;
-  margin-left: 5rem;
-  margin-right: 5rem;
+  min-height: 100%;
+  margin-bottom: -2.5rem;
+  padding-bottom: 3.5rem;
 }
 
 #footer {
@@ -124,13 +124,6 @@ label {
   color: white;
 }
 
-.signout {
-  border: 0;
-  text-align: left;
-  box-shadow: 0 0;
-  font-weight: bold;
-}
-
 .page-header {
   display: flex;
   flex-direction: column;
@@ -176,26 +169,4 @@ label {
 .user-update {
   display: flex;
   justify-content: space-around;
-}
-
-.navbar-custom {
-  background-color: $petrol;
-  margin-top: 1rem;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  a {
-    font-size: 1.3em;
-    color: white;
-  }
-  li {
-    padding-left: 30px;
-  }
-  button {
-    margin-top: 10px;
-    font-size: 1.3em;
-    color: white;
-    border: 1px solid white;
-    outline: none;
-    box-shadow: none;
-  }
 }

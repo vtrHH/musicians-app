@@ -1,0 +1,45 @@
+.navbar-custom {
+  background-color: $petrol;
+  margin-top: 1rem;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  a {
+    font-size: 1.3em;
+    color: white;
+  }
+  li {
+    padding-left: 30px;
+  }
+  button {
+    margin-top: 10px;
+    font-size: 1.3em;
+    color: white;
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.navbar-user-image {
+  width: 3em;
+  height: 3em;
+  border-radius: 30%;
+  object-fit: cover;
+  margin-right: 0.1em;
+  border: 3px solid #dedede;
+}
+
+.dropdown-menu-custom {
+  background-color: $petrol;
+  font-size: 0.9em;
+}
+
+.btn-logout {
+  width: 100%;
+  padding: 3px 20px;
+  text-align: left;
+}
+
+.dropdown-custom-wrapper {
+  position: right;
+}
