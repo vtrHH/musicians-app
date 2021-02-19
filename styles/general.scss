@@ -103,6 +103,10 @@ img {
     outline: none;
     box-shadow: none;
   }
+  input:-webkit-autofill:active {
+    transition: background-color 5000s;
+    -webkit-text-fill-color: #fff !important;
+  }
 }
 
 .page-header {
@@ -144,4 +148,9 @@ textarea {
 label {
   margin-bottom: 0.5em;
   color: white;
+}
+
+input:-webkit-autofill:active {
+  transition: background-color 5000s;
+  -webkit-text-fill-color: #fff !important;
 }

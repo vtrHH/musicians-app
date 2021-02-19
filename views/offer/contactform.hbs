@@ -1,10 +1,13 @@
-<h1>NODEMAILER</h1>
-<form action="/offer/send-email" method="post">
-  <label for=""></label>
-  <input type="hidden" name="email" id="input-email" value="{{user.email}}">
-  <label for="">Subject</label>
-  <input type="text" name="subject" id="">
-  <label for="">Message</label>
-  <textarea type="text" name="message" id=""></textarea>
-  <button type="submit">Submit</button>
+<section class="page-header">
+<h3>Contact {{offer.creator.name}} about this offer: <strong> {{offer.title}}</strong></h3>
+</section>
+
+<form class="form" action="/offer/{{offer._id}}/send-email" method="post">
+  <label for="test"></label>
+  <input type="hidden" name="email" id="input-email" value="{{offer.creator.email}}">
+  <label for="">Choose a subject</label>
+  <input type="text" name="subject" id="" placeholder="Choose a good title for your email">
+  <label for="">What do you want to send the provider?</label>
+  <textarea type="text" name="message" id="" placeholder="Give {{offer.creator.name}} more details about your inquiry"></textarea>
+  <button type="submit">Contact provider</button>
 </form>
