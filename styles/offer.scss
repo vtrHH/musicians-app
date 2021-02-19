@@ -59,38 +59,3 @@
 .card-text-custom {
   line-height: 1;
 }
-
-.offer-form {
-  display: flex;
-  flex-direction: column;
-  margin-left: 10rem;
-  margin-right: 10rem;
-  button {
-    padding: 1em;
-    border-radius: 0;
-    margin-bottom: 1em;
-    border: 1px solid $petrol;
-    font: white;
-    background-color: $petrol;
-    font-size: 1.2em;
-    outline: none;
-    box-shadow: none;
-  }
-  ::placeholder {
-    color: white;
-  }
-
-  textarea {
-    min-height: 3em;
-    resize: vertical;
-    font: white;
-    outline: none;
-    box-shadow: none;
-  }
-
-  label {
-    margin-bottom: 0.5em;
-    color: white;
-    font-size: 1.3em;
-  }
-}

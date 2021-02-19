@@ -18,11 +18,11 @@
    {{/each}}
 </section>
 
-<div class="btn-group">
+<div class="btn-group-homepage pagination">
   {{#if previousPage}}
-    <a href="/home?page={{previousPage}}" class="btn">Previous</a>
+    <button><a href="/home?page={{previousPage}}">Previous</a></button>
   {{/if}}
   {{#if nextPage}}
-    <a href="/home?page={{nextPage}}" class="btn">Next</a>
+     <button><a href="/home?page={{nextPage}}">Next</a></button>
   {{/if}}
 </div>

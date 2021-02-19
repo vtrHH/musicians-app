@@ -1,0 +1,33 @@
+.user-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3em;
+  padding-bottom: 1.7em;
+  background-color: #0aaad1;
+}
+
+.user-image {
+  width: 10em;
+  height: 10em;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.1em;
+  border: 3px solid #dedede;
+}
+
+.user-information {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 2em;
+}
+
+.user-information-item {
+  margin-bottom: 1.5em;
+}
+
+.user-update {
+  display: flex;
+  justify-content: space-around;
+}
