@@ -16,10 +16,14 @@
 
     <label for="input-description">Add some more details for us</label>
     <textarea name="description" id="input-description" cols="30" rows="5" required >{{offer.description}}
-</textarea>
+    </textarea>
 
+    {{#if offer.image}}
+    <input type="hidden" type="file" id="input-image" name="image" accept="image/png, image/jpeg">
+    {{else}}
     <label for="input-image">Add your image</label>
     <input type="file" id="input-image" name="image" accept="image/png, image/jpeg">
+    {{/if}}
    
     <label for="input-condition">How is the condition (if it is an item)?</label>
     <select name="condition" id="input-condition" value="{{offer.condition}}">
