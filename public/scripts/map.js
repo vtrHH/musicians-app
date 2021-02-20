@@ -22,6 +22,16 @@ L.tileLayer(
 
 //////////////////// Showing already saved locations to the map ////////////////////
 
+const data = locations.map((item) => {
+  return {
+    type: 'Feature',
+    geometry: item.location
+  };
+});
+
+console.log(data);
+L.geoJSON(data).addTo(map);
+
 //////////////////// Getting Location when clicking on map ////////////////////
 function onMapClick(event) {
   marker.setLatLng(event.latlng);

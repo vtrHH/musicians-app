@@ -1,0 +1,26 @@
+<section class="page-header">
+<h3>Update your offer "{{offer.title}}"</h3>
+</section>
+
+<form class="form" method="POST" >
+    <label for="input-title">Title of your offer</label>
+    <input type="text" id="input-title" name="title" required value="{{offer.title}}">
+
+    <label for="input-description">Description</label>
+    <textarea name="description" id="input-description"required>{{offer.description}}</textarea>
+
+   
+    <label for="input-condition">How is the condition?</label>
+    <select name="condition" id="input-condition" required>
+        <option value="" selected disabled>Category</option>
+        <option value="new">New</option>
+        <option value="used">Used</option>
+        <option value="heavily used">Heavily Used</option>
+    </select>
+
+    <label for="input-url">URL</label>  
+    <input type="url" id="input-url" name="url" placeholder="URL" value="{{offer.url}}">
+
+    <button>Update your offer</button>
+
+</form>

@@ -1,22 +1,22 @@
 <section class="page-header">
-   <h3>Find here all details about: <strong>{{offer.title}}</strong></h3>
+   <h3>Find here all details about: <strong>{{event.title}}</strong></h3>
 </section>
 
 <section class="offer-single"> 
 <section class="offer-header">
  <div> 
-  {{#if offer.image }}
-  <img class="offer-header-picture" src="{{offer.image}}" alt="{{offer.title}}">
+  {{#if event.image }}
+  <img class="offer-header-picture" src="{{event.image}}" alt="{{event.title}}">
   {{else}}
-  <img src="/images/no-image-icon.png"alt="{{offer.title}}">
+  <img src="/images/no-image-icon.png"alt="{{event.title}}">
   {{/if}}
   </div> 
  <div class="offer-description"> 
-  <h3>{{offer.title}}</h3>
-  <p><strong>More details:</strong> {{offer.description}}</p>
-  <p><strong>Condition:</strong> {{offer.condition}}</p>
-  {{#if offer.url}}
-  <p><strong>Url:</strong> {{offer.url}}</p>
+  <h3>{{event.title}}</h3>
+  <p><strong>More details:</strong> {{event.description}}</p>
+  <p><strong>Condition:</strong> {{event.condition}}</p>
+  {{#if event.url}}
+  <p><strong>Url:</strong> {{event.url}}</p>
   {{/if}}
   <p>Created on {{{ date creationDate "DD/MM/YYYY" }}} at {{{ date creationDate "HH:mm" }}}</p>
  </div>
@@ -25,8 +25,8 @@
 <section >
 {{#if authenticatedUserIsOwner}}
 <div class="btn-group-homepage">
-<button><a href="/offer/{{offer._id}}/update">Edit Offer</a></button>
-<button><a href="/offer/{{offer._id}}/delete">Delete Offer</a></button>
+<button><a href="/event/{{event._id}}/update">Edit Offer</a></button>
+<button><a href="/event/{{event._id}}/delete">Delete Offer</a></button>
 </div>
 {{else}}
 <div class="btn-group-homepage"> 
