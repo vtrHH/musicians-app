@@ -11,11 +11,6 @@ const offerSchema = new mongoose.Schema(
     image: {
       type: String
     },
-    points: {
-      type: Number,
-      required: true,
-      default: 0
-    },
     description: {
       type: String,
       required: true
@@ -31,6 +26,10 @@ const offerSchema = new mongoose.Schema(
     },
     url: {
       type: String
+    },
+    isActive: {
+      type: Boolean,
+      default: 'true'
     },
     creator: {
       type: mongoose.Types.ObjectId,

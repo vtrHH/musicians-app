@@ -23,11 +23,13 @@
  </div>
 </section>
 
-<section class="btn-group-homepage">
+<section >
 {{#if authenticatedUserIsOwner}}
-<div>
+<div class="btn-group-homepage">
 <button><a href="/offer/{{offer._id}}/update">Edit Offer</a></button>
-<button><a href="/offer/{{offer._id}}/deactivate">Deactivate Offer</a></button>
+<form action="/offer/{{offer._id}}/deactivate" method="POST">
+<button type="submit">Deactivate Offer</button>
+</form>
 <button><a href="/offer/{{offer._id}}/delete">Delete Offer</a></button>
 </div>
 {{else}}

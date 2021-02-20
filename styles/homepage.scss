@@ -6,6 +6,7 @@
   gap: 7em;
   cursor: pointer;
   transition: background-color 0.25s ease;
+  margin-top: 2em;
   margin-bottom: 0.5em;
   button {
     border-radius: 5%;
@@ -21,6 +22,24 @@
     }
     :hover {
       color: $dark-grey;
+    }
+  }
+  form {
+    button {
+      border-radius: 5%;
+      background-color: $petrol;
+      border: 1px solid $petrol;
+      padding: 10px;
+      outline: none;
+      box-shadow: none;
+      a {
+        color: white;
+        font-size: 1.2em;
+        text-decoration: none;
+      }
+      :hover {
+        color: $dark-grey;
+      }
     }
   }
 }

@@ -156,33 +156,35 @@ router.get('/:id/update', routeGuard, (req, res, next) => {
     });
 });
 
-router.post(
-  '/:id/update',
-  routeGuard,
-  uploadMiddleware.single('image'),
-  (req, res, next) => {
-    const id = req.params.id;
-    const data = req.body;
-    let image;
-    if (req.file) {
-      image = req.file.path;
-    }
-    Offer.findByIdAndUpdate(id, {
-      title: data.title,
-      image: image,
-      description: data.description,
-      typeof: data.typeof,
-      condition: data.condition,
-      url: data.url
+router.post('/:id/update', routeGuard, (req, res, next) => {
+  const id = req.params.id;
+  const data = req.body;
+  Offer.findByIdAndUpdate(id, {
+    title: data.title,
+    description: data.description,
+    typeof: data.typeof,
+    condition: data.condition,
+    url: data.url
+  })
+    .then((offer) => {
+      res.redirect(`/offer/${offer._id}`);
     })
-      .then((offer) => {
-        res.redirect(`/offer/${offer._id}`);
-      })
-      .catch((error) => {
-        next(error);
-      });
-  }
-);
+    .catch((error) => {
+      next(error);
+    });
+});
+
+router.post('/:id/deactivate', routeGuard, (req, res, next) => {
+  const id = req.params.id;
+  Offer.findByIdAndUpdate(id, { offer_status: 'deactivated' })
+    .then((offer) => {
+      console.log(offer);
+      res.redirect(`/offer/${offer._id}`);
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
 
 router.get('/:id/delete', routeGuard, (req, res, next) => {
   const id = req.params.id;

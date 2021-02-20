@@ -30,6 +30,11 @@ app.set('view engine', 'hbs');
 
 hbs.registerPartials('views/partials');
 hbs.registerHelper('date', hbsDateHelper);
+hbs.registerHelper('if', function (conditional, options) {
+  if (conditional) {
+    return options.fn(this);
+  }
+});
 
 app.use(serveFavicon(path.join(__dirname, 'public/images', 'favicon.ico')));
 app.use(
