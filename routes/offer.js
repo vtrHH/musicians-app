@@ -45,11 +45,35 @@ router.post(
 );
 
 router.get('/marketplace', routeGuard, (req, res, next) => {
-  Offer.find()
+  Offer.find({ typeof: 'Item' })
     .populate('creator')
     .sort({ creationDate: -1 })
     .then((offers) => {
       res.render('offer/items-overview', { offers });
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
+
+router.get('/events', routeGuard, (req, res, next) => {
+  Offer.find({ typeof: 'Event' })
+    .populate('creator')
+    .sort({ creationDate: -1 })
+    .then((offers) => {
+      res.render('offer/events-overview', { offers });
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
+
+router.get('/services', routeGuard, (req, res, next) => {
+  Offer.find({ typeof: 'Service' })
+    .populate('creator')
+    .sort({ creationDate: -1 })
+    .then((offers) => {
+      res.render('offer/services-overview', { offers });
     })
     .catch((error) => {
       next(error);
@@ -92,7 +116,7 @@ router.get('/:id/send-email', routeGuard, (req, res, next) => {
   Offer.findById(id)
     .populate('creator')
     .then((offer) => {
-      res.render('offer/contactform', { offer, subtitle: offer.title, });
+      res.render('offer/contactform', { offer, subtitle: offer.title });
     })
     .catch((error) => {
       next(error);

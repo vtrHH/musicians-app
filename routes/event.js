@@ -6,11 +6,22 @@ const routeGuard = require('../middleware/route-guard');
 const uploadMiddleware = require('../middleware/file-upload');
 const dotenv = require('dotenv');
 dotenv.config();
-const nodemailer = require('nodemailer');
 
-const Event = require('./event');
+const Event = require('../models/event');
 const User = require('../models/user');
 const Comment = require('../models/comment');
+
+router.get('/', routeGuard, (req, res, next) => {
+  Event.find()
+    .populate('creator')
+    .sort({ creationDate: -1 })
+    .then((events) => {
+      res.render('event/events-overview', { events });
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
 
 router.get('/create', routeGuard, (req, res, next) => {
   res.render('event/create');
@@ -42,18 +53,6 @@ router.post(
   }
 );
 
-router.get('/events', routeGuard, (req, res, next) => {
-  Event.find()
-    .populate('creator')
-    .sort({ creationDate: -1 })
-    .then((events) => {
-      res.render('offer/events-overview', { events });
-    })
-    .catch((error) => {
-      next(error);
-    });
-});
-
 router.get('/:id', routeGuard, (req, res, next) => {
   const id = req.params.id;
   let event;
@@ -62,7 +61,7 @@ router.get('/:id', routeGuard, (req, res, next) => {
     .then((doc) => {
       event = doc;
       if (event === null) {
-        const error = new Error('Offer does not exist.');
+        const error = new Error('Event does not exist.');
         next(error);
       } else {
         return Comment.find({ event: id }).populate('creator');
@@ -73,7 +72,7 @@ router.get('/:id', routeGuard, (req, res, next) => {
         event,
         subtitle: event.title,
         authenticatedUserIsOwner:
-          req.user && req.user._id.toString() === offer.creator._id.toString(),
+          req.user && req.user._id.toString() === event.creator._id.toString(),
         comments
       });
     })

@@ -15,6 +15,11 @@ const offerSchema = new mongoose.Schema(
       type: String,
       required: true
     },
+    typeof: {
+      type: String,
+      enum: ['Service', 'Event', 'Item'],
+      required: true
+    },
     condition: {
       type: String,
       enum: ['new', 'used', 'heavily used'],
