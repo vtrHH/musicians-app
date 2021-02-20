@@ -1,6 +1,25 @@
 
-<p>Are you really sure you want to delete your post?</p>
+<section class="page-header">
+   <h3>Are you sure you want to delete this offer? </strong></h3>
+</section>
 
-<form method="POST">  
+<section class="offeritem-overview">
+   <div class="card card-custom" style="width: 20rem;">
+  <div class="card-header card-header-custom">{{offer.title}}</div>
+  {{#if offer.image}}
+  <img src="{{offer.image}}" class="card-img-top card-img-custom" alt="{{offer.title}}">
+  {{else}}
+  <img src="/images/no-image-icon.png" class="card-img-top card-img-custom" alt="">
+  {{/if}}
+  <div class="card-body card-body-custom"> 
+  <p class="card-text card-text-custom">{{offer.description}}</p>
+  <p class="card-text card-text-custom">Created on {{{ date creationDate "DD/MM/YYYY" }}}</p>
+  </div>
+</div>
+</section>
+
+<form class="form offer-delete-button" method="POST">  
 <button>Confirm Deletion</button>
 </form>
+
+

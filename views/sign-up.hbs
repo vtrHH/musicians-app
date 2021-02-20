@@ -4,6 +4,8 @@
 
 <form class="authentication-form" action="/authentication/sign-up" method="POST" enctype="multipart/form-data">
 
+<h3>Basic Information</h3>
+
   <label for="input-name">Name</label>
   <input type="text" id="input-name" name="name" placeholder="Your Name" />
 
@@ -13,9 +15,37 @@
   <label for="input-password">Password</label>
   <input type="password" name="password" id="input-password" placeholder="A Strong Password" />
 
-  <button>Sign In and get connected with our community</button>
+<h3>Use the chance to personalise your profile:</h3>
+
+
+  <label for="input-description">Tell us something about you</label>
+  <textarea name="description" id="input-description" cols="30" rows="5" placeholder="Some words about yourself"></textarea>
+  
+  <label for="input-skills">Instruments / Skills you are mastering</label>
+  <textarea name="skills" id="input-skills" cols="30" rows="1" placeholder="Which instruments and skills do you have?"></textarea>
+
+  <label for="input-interests">Topics you are interested in</label>
+  <textarea name="interests" id="input-interests" cols="30" rows="1" placeholder="I love to learn more about..."></textarea>
+
+  <label for="input-experience">Your experience level</label>
+    <select name="experience" id="input-experience">
+        <option value="" selected disabled>Experience</option>
+        <option value="Beginner">Beginner</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+        <option value="Pro">Pro</option>
+    </select>
+
+  <label for="input-image">Profile Picture</label>
+  <input id="input-image" type="file" name="image" accept="image/png, image/jpeg">
+
+  <label for="input-url">My Website</label>  
+  <input type="url" id="input-url" name="url" placeholder="URL">
+
+  <button>Sign up and get connected with our community</button>
 </form>
 
 </div>
 
 </section>
+

@@ -17,11 +17,16 @@
   </div>
   <div class="nav-item dropleft dropdown-custom-wrapper">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         {{#if user.image}}
          <img class="navbar-user-image" src="{{user.image}}" alt="">
+         {{else}}
+         <img class="navbar-user-image" src="/images/no-profile-picture.png"alt="{{user.name}}">
+          {{/if}}
         </a>
         <div class="dropdown-menu dropdown-menu-custom" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="/user/{{user._id}}"><i class="fas fa-user"></i> Check your profile</a>
-          <a class="dropdown-item" href="/user/{{user._id}}/my-offers"><i class="fas fa-bullhorn"></i> Check your created posts</a>
+          <a class="dropdown-item" href="/user/{{user._id}}/update/picture"><i class="fas fa-user"></i> Update your picture</a>
+          <a class="dropdown-item" href="/user/{{user._id}}/my-offers"><i class="fas fa-bullhorn"></i> Manage your posts</a>
           <form class="form-inline my-2 my-lg-0" action="/authentication/sign-out" method="POST">
           <button class="nav-link btn-logout" type="submit"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
           </form>

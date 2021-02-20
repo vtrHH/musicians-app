@@ -23,24 +23,51 @@ router.get('/:id/update', routeGuard, (req, res, next) => {
     });
 });
 
-router.post(
-  '/:id/update',
-  routeGuard,
-  uploadMiddleware.single('image'),
-  (req, res, next) => {
-    const id = req.params.id;
-    const data = req.body;
-    let image;
-    if (req.file) {
-      image = req.file.path;
-    }
-    User.findByIdAndUpdate(id, {
-      image: image,
+router.post('/:id/update', routeGuard, (req, res, next) => {
+  const id = req.params.id;
+  const data = req.body;
+  User.findByIdAndUpdate(
+    id,
+    {
       description: data.description,
       skills: data.skills,
       interests: data.interests,
       experience: data.experience,
       url: data.url
+    },
+    { new: true, returnOriginal: true }
+  )
+    .then((user) => {
+      res.redirect(`/user/${user._id}`);
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
+
+router.get('/:id/update/picture', routeGuard, (req, res, next) => {
+  const id = req.params.id;
+  User.findById(id)
+    .then((user) => {
+      res.render('user/update-picture', { user: user });
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
+
+router.post(
+  '/:id/update/picture',
+  routeGuard,
+  uploadMiddleware.single('image'),
+  (req, res, next) => {
+    const id = req.params.id;
+    let image;
+    if (req.file) {
+      image = req.file.path;
+    }
+    User.findByIdAndUpdate(id, {
+      image: image
     })
       .then((user) => {
         res.redirect(`/user/${user._id}`);

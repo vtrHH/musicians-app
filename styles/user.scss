@@ -1,19 +1,32 @@
-.user-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 3em;
-  padding-bottom: 1.7em;
-  background-color: #0aaad1;
+.user-single {
+  p,
+  h3,
+  h5,
+  span {
+    color: white;
+  }
 }
 
-.user-image {
-  width: 10em;
-  height: 10em;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 0.1em;
-  border: 3px solid #dedede;
+.user-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  img {
+    flex: 1;
+    width: 15em;
+    height: 15em;
+    border-radius: 20%;
+    object-fit: cover;
+    margin-right: 0.1em;
+    border: 3px solid white;
+    background-color: hsla(192, 0%, 79%, 0.7);
+  }
+}
+
+.user-description {
+  flex: 3;
+  padding-left: 5em;
+  margin-bottom: 2em;
 }
 
 .user-information {

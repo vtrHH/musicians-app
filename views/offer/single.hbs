@@ -1,16 +1,61 @@
 <section class="page-header">
-   <h3>Offer created</h3>
+   <h3>Find here all details about: <strong>{{offer.title}}</strong></h3>
 </section>
 
-<section class="offeritem-overview">
-   <div> 
-   {{> singleitem}}
-   </div> <br>
+<section class="offer-single"> 
+<section class="form offer-header">
+ <div> 
+  {{#if offer.image }}
+  <img class="offer-header-picture" src="{{offer.image}}" alt="{{offer.title}}">
+  {{else}}
+  <img src="/images/no-image-icon.png"alt="{{offer.title}}">
+  {{/if}}
+  </div> 
+ <div class="offer-description"> 
+  <h3>{{offer.title}}</h3>
+  <p><strong>Category:</strong> {{offer.typeof}}</p>
+  <p><strong>More details:</strong> {{offer.description}}</p>
+  <p><strong>Condition:</strong> {{offer.condition}}</p>
+  {{#if offer.url}}
+  <p><strong>Url:</strong> {{offer.url}}</p>
+  {{/if}}
+  <p>Created on {{{ date creationDate "DD/MM/YYYY" }}} at {{{ date creationDate "HH:mm" }}}</p>
+ </div>
+</section>
+
 <section class="btn-group-homepage">
-  {{#if user}}
+{{#if authenticatedUserIsOwner}}
+<div>
 <button><a href="/offer/{{offer._id}}/update">Edit Offer</a></button>
+<button><a href="/offer/{{offer._id}}/deactivate">Deactivate Offer</a></button>
 <button><a href="/offer/{{offer._id}}/delete">Delete Offer</a></button>
+</div>
+{{else}}
+<div> 
+<button><a href="/offer/{{offer._id}}/send-email">Contact the provider</a></button>
+</div>
 {{/if }}
 </section>
 
+<section class="form">
+    <h5 class="form">Recent comments about this offer:</h5>
+    <ul>
+    {{#each comments}}
+      <li class="form comment-single">
+        <p><strong>{{message}}</strong></p>
+        <span>Published by {{creator.name}} on {{{ date creationDate "DD/MM/YYYY" }}} at {{{ date creationDate "HH:mm" }}}</span>
+      </li>
+    {{/each}}
+  </ul>
+</section>
+
+<section class="form">
+    <h5 class="form">Leave a comment</h5>
+    <form class="form" action="/offer/{{offer._id}}/comment" method="POST">
+    <label for="input-message">Message</label>
+    <textarea name="message" id="input-message" placeholder="Write a comment..."></textarea>
+
+    <button>Submit Comment</button>
+  </form>
+</section>
 </section>

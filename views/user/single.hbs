@@ -1,52 +1,49 @@
-<section class="page-header"> 
-   {{#if user.image }}
-   <img src="{{user.image}}" alt="{{user.name}}" class="user-image" />
-   {{/if }}
+<section class="page-header">
+   <h3>This is what you have provided as your background information:</h3>
 </section>
 
-<section>
-<h3>Here is what you have provided as your background information so far:</h3>
-
-<div class="user-information">
-
-   <div class="user-information-item">
-   <p><strong>Your profile name is:</strong> {{user.name}}</p>
-   </div>
-  
+<section class="user-single"> 
+<section class="form user-header">
+ <div> 
+  {{#if user.image }}
+  <img src="{{user.image}}" alt="{{user.name}}">
+  {{else}}
+  <img src="/images/no-profile-picture.png"alt="{{user.name}}">
+  {{/if}}
+  </div> 
+ <div class="user-description"> 
+  <h3>{{user.name}}</h3>
    {{#if user.description}}
    <div class="user-information-item">
    <p><strong>You would describe yourself as follows:</strong> {{user.description}}</p>
    </div>
    {{/if }}
-
    {{#if user.skills}}
    <div class="user-information-item">
    <p><strong>You bring the following skills:</strong> {{user.skills}}</p>
    </div>
    {{/if }}
-
    {{#if user.interests}}
    <div class="user-information-item">
    <p><strong>Your interests are:</strong> {{user.interests}}</p>
    </div>
    {{/if }}
-
    {{#if user.experience}}
    <div class="user-information-item">
    <p><strong>The experience level you set:</strong> {{user.experience}}</p>
    </div>
    {{/if }}
-
    {{#if user.url}}
    <div class="user-information-item">
    <p><strong>The website you added:</strong> {{user.url}}</p>
    </div>
    {{/if }}
-</div>
 </section>
 
-<section class="user-update">
- <a href="/user/{{user._id}}/update" class="btn">Update your profile</a>
- <a href="/user/{{user._id}}/my-offers" class="btn">Check your published offers</a>
+<section class="btn-group-homepage">
+{{#if user}}
+ <button><a href="/user/{{user._id}}/update">Update your profile</a></button>
+ <button><a href="/user/{{user._id}}/update/picture">Update your profile picture</a></button>
+ <button><a href="/user/{{user._id}}/my-offers">Check your published offers</a> </button>
+{{/if }}
 </section>
-
