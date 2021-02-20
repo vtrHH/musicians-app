@@ -3,10 +3,10 @@
 .btn-group-homepage {
   display: flex;
   justify-content: center;
-  gap: 50px;
+  gap: 7em;
   cursor: pointer;
   transition: background-color 0.25s ease;
-  margin-bottom: 30px;
+  margin-bottom: 0.5em;
   button {
     border-radius: 5%;
     background-color: $petrol;

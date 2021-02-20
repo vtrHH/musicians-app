@@ -56,7 +56,7 @@ router.get('/events', routeGuard, (req, res, next) => {
     });
 });
 
-router.get('/buy-and-sell', routeGuard, (req, res, next) => {
+router.get('/marketplace', routeGuard, (req, res, next) => {
   Offer.find({ typeof: 'Item' })
     .populate('creator')
     .sort({ creationDate: -1 })
