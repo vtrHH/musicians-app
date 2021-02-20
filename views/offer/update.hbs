@@ -1,32 +1,17 @@
 <section class="page-header">
-<h3>{{offer.title}}</h3>
+<h3>Update your offer "{{offer.title}}"</h3>
 </section>
 
-<form class="form" method="POST" action="/offer/{{offer._id}}/update" enctype="multipart/form-data">
-    <label for="input-title">Title of your advertisement</label>
+<form class="form" method="POST" >
+    <label for="input-title">Title of your offer</label>
     <input type="text" id="input-title" name="title" required value="{{offer.title}}">
 
-    <label for="input-typeof">What do you want to offer</label>
-    <select name="typeof" id="input-typeof" required>
-        <option value="" selected disabled>Category</option>
-        <option value="service">Service</option>
-        <option value="event">Event</option>
-        <option value="item">Item</option>
-    </select>
+    <label for="input-description">Description</label>
+    <textarea name="description" id="input-description"required>{{offer.description}}</textarea>
 
-    <label for="input-description">Add some more details for us</label>
-    <textarea name="description" id="input-description" cols="30" rows="5" required >{{offer.description}}
-    </textarea>
-
-    {{#if offer.image}}
-    <input type="hidden" type="file" id="input-image" name="image" accept="image/png, image/jpeg">
-    {{else}}
-    <label for="input-image">Add your image</label>
-    <input type="file" id="input-image" name="image" accept="image/png, image/jpeg">
-    {{/if}}
    
-    <label for="input-condition">How is the condition (if it is an item)?</label>
-    <select name="condition" id="input-condition" value="{{offer.condition}}">
+    <label for="input-condition">How is the condition?</label>
+    <select name="condition" id="input-condition" required>
         <option value="" selected disabled>Category</option>
         <option value="new">New</option>
         <option value="used">Used</option>

@@ -150,7 +150,8 @@ router.get('/:id/update', routeGuard, (req, res, next) => {
   const id = req.params.id;
   Offer.findById(id)
     .then((offer) => {
-      res.render('offer/update', { offer });
+      console.log(offer);
+      res.render('offer/update', { offer: offer });
     })
     .catch((error) => {
       next(error);
@@ -160,24 +161,16 @@ router.get('/:id/update', routeGuard, (req, res, next) => {
 router.post('/:id/update', routeGuard, (req, res, next) => {
   const id = req.params.id;
   const data = req.body;
-  Offer.findByIdAndUpdate(id, {
-    title: data.title,
-    description: data.description,
-    typeof: data.typeof,
-    condition: data.condition,
-    url: data.url
-  })
-    .then((offer) => {
-      res.redirect(`/offer/${offer._id}`);
-    })
-    .catch((error) => {
-      next(error);
-    });
-});
-
-router.post('/:id/deactivate', routeGuard, (req, res, next) => {
-  const id = req.params.id;
-  Offer.findByIdAndUpdate(id, { offer_status: 'deactivated' })
+  Offer.findByIdAndUpdate(
+    id,
+    {
+      title: data.title,
+      description: data.description,
+      condition: data.condition,
+      url: data.url
+    },
+    { new: true, returnOriginal: true }
+  )
     .then((offer) => {
       console.log(offer);
       res.redirect(`/offer/${offer._id}`);
