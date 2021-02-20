@@ -97,6 +97,7 @@ router.get('/:id', routeGuard, (req, res, next) => {
     .then((comments) => {
       res.render('offer/single', {
         offer,
+        subtitle: offer.title,
         authenticatedUserIsOwner:
           req.user && req.user._id.toString() === offer.creator._id.toString(),
         comments
