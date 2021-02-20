@@ -9,7 +9,7 @@ const Offer = require('./../models/offer');
 router.get('/', (req, res, next) => {
   const page = Number(req.query.page) || 1;
 
-  const limit = 4;
+  const limit = 3;
   const skip = (page - 1) * limit;
 
   Offer.find()
