@@ -43,35 +43,11 @@ router.post(
 );
 
 router.get('/events', routeGuard, (req, res, next) => {
-  Event.find({ typeof: 'Event' })
+  Event.find()
     .populate('creator')
     .sort({ creationDate: -1 })
-    .then((offers) => {
-      res.render('offer/events-overview', { offers });
-    })
-    .catch((error) => {
-      next(error);
-    });
-});
-
-router.get('/marketplace', routeGuard, (req, res, next) => {
-  Offer.find()
-    .populate('creator')
-    .sort({ creationDate: -1 })
-    .then((offers) => {
-      res.render('offer/items-overview', { offers });
-    })
-    .catch((error) => {
-      next(error);
-    });
-});
-
-router.get('/services', routeGuard, (req, res, next) => {
-  Offer.find({ typeof: 'Service' })
-    .populate('creator')
-    .sort({ creationDate: -1 })
-    .then((offers) => {
-      res.render('offer/services-overview', { offers });
+    .then((events) => {
+      res.render('offer/events-overview', { events });
     })
     .catch((error) => {
       next(error);
@@ -80,22 +56,22 @@ router.get('/services', routeGuard, (req, res, next) => {
 
 router.get('/:id', routeGuard, (req, res, next) => {
   const id = req.params.id;
-  let offer;
-  Offer.findById(id)
+  let event;
+  Event.findById(id)
     .populate('creator')
     .then((doc) => {
-      offer = doc;
-      if (offer === null) {
+      event = doc;
+      if (event === null) {
         const error = new Error('Offer does not exist.');
         next(error);
       } else {
-        return Comment.find({ offer: id }).populate('creator');
+        return Comment.find({ event: id }).populate('creator');
       }
     })
     .then((comments) => {
-      res.render('offer/single', {
-        offer,
-        subtitle: offer.title,
+      res.render('event/single', {
+        event,
+        subtitle: event.title,
         authenticatedUserIsOwner:
           req.user && req.user._id.toString() === offer.creator._id.toString(),
         comments
@@ -109,47 +85,12 @@ router.get('/:id', routeGuard, (req, res, next) => {
     });
 });
 
-router.get('/:id/send-email', routeGuard, (req, res, next) => {
-  const id = req.params.id;
-  Offer.findById(id)
-    .populate('creator')
-    .then((offer) => {
-      res.render('offer/contactform', { offer });
-    })
-    .catch((error) => {
-      next(error);
-    });
-});
-
-router.post('/:id/send-email', (req, res, next) => {
-  let { email, subject, message } = req.body;
-  const transport = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-      user: 'mooseicians@gmail.com',
-      pass: 'Malta123!'
-    }
-  });
-  transport
-    .sendMail({
-      from: 'mooseicians@gmail.com',
-      to: email,
-      subject: subject,
-      text: message,
-      html: `<b>${message}</b>`
-    })
-    .then((info) =>
-      res.render('offer/message', { email, subject, message, info })
-    )
-    .catch((error) => console.log(error));
-});
-
 router.get('/:id/update', routeGuard, (req, res, next) => {
   const id = req.params.id;
-  Offer.findById(id)
-    .then((offer) => {
-      console.log(offer);
-      res.render('offer/update', { offer: offer });
+  Event.findById(id)
+    .then((event) => {
+      console.log(event);
+      res.render('event/update', { event: event });
     })
     .catch((error) => {
       next(error);
@@ -159,19 +100,18 @@ router.get('/:id/update', routeGuard, (req, res, next) => {
 router.post('/:id/update', routeGuard, (req, res, next) => {
   const id = req.params.id;
   const data = req.body;
-  Offer.findByIdAndUpdate(
+  Event.findByIdAndUpdate(
     id,
     {
       title: data.title,
       description: data.description,
-      condition: data.condition,
       url: data.url
     },
     { new: true, returnOriginal: true }
   )
-    .then((offer) => {
-      console.log(offer);
-      res.redirect(`/offer/${offer._id}`);
+    .then((event) => {
+      console.log(event);
+      res.redirect(`/event/${event._id}`);
     })
     .catch((error) => {
       next(error);
@@ -180,9 +120,9 @@ router.post('/:id/update', routeGuard, (req, res, next) => {
 
 router.get('/:id/delete', routeGuard, (req, res, next) => {
   const id = req.params.id;
-  Offer.findById(id)
-    .then((offer) => {
-      res.render('offer/delete', { offer });
+  Event.findById(id)
+    .then((event) => {
+      res.render('event/delete', { event });
     })
     .catch((error) => {
       next(error);
@@ -191,7 +131,7 @@ router.get('/:id/delete', routeGuard, (req, res, next) => {
 
 router.post('/:id/delete', routeGuard, (req, res, next) => {
   const id = req.params.id;
-  Offer.findByIdAndDelete(id)
+  Event.findByIdAndDelete(id)
     .then(() => {
       res.redirect('/home');
     })
@@ -206,10 +146,10 @@ router.post('/:id/comment', routeGuard, (req, res, next) => {
   Comment.create({
     message: data.message,
     creator: req.user._id,
-    offer: id
+    event: id
   })
     .then(() => {
-      res.redirect(`/offer/${id}`);
+      res.redirect(`/event/${id}`);
     })
     .catch((error) => {
       next(error);

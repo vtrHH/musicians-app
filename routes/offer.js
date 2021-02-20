@@ -44,36 +44,12 @@ router.post(
   }
 );
 
-router.get('/events', routeGuard, (req, res, next) => {
-  Offer.find({ typeof: 'Event' })
-    .populate('creator')
-    .sort({ creationDate: -1 })
-    .then((offers) => {
-      res.render('offer/events-overview', { offers });
-    })
-    .catch((error) => {
-      next(error);
-    });
-});
-
 router.get('/marketplace', routeGuard, (req, res, next) => {
   Offer.find()
     .populate('creator')
     .sort({ creationDate: -1 })
     .then((offers) => {
       res.render('offer/items-overview', { offers });
-    })
-    .catch((error) => {
-      next(error);
-    });
-});
-
-router.get('/services', routeGuard, (req, res, next) => {
-  Offer.find({ typeof: 'Service' })
-    .populate('creator')
-    .sort({ creationDate: -1 })
-    .then((offers) => {
-      res.render('offer/services-overview', { offers });
     })
     .catch((error) => {
       next(error);

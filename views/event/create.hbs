@@ -1,0 +1,20 @@
+<section class="page-header">
+<h3>Please add all details of the event you want to publish</h3>
+</section>
+
+<form class="form" method="POST" enctype="multipart/form-data">
+    <label for="input-title">Title of your event</label>
+    <input type="text" id="input-title" name="title" placeholder="What is your event about" required>
+
+    <label for="input-description">Description</label>
+    <textarea name="description" id="input-description" placeholder="Let us know more details about your event"required></textarea>
+
+    <label for="input-image">Add your image (optional)</label>
+    <input type="file" id="input-image" name="image" accept="image/png, image/jpeg">
+
+    <label for="input-url">URL (optional)</label>  
+    <input type="url" id="input-url" name="url" placeholder="URL">
+
+    <button>Create your offer</button>
+
+</form>
