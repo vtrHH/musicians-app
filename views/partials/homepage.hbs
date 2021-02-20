@@ -1,0 +1,28 @@
+<section class="page-header">
+   <h3>Welcome, {{user.name}}</h3>
+   <h5>Great to have you back!</h5>
+   <h5>Check out the latest offers of the mooseician community...</h5>
+</section>
+
+<section class="btn-group-homepage">
+<button><a href="/offer/events">Events</a></button>
+<button><a href="/offer/services">Services / Trainings / Coaching</a></button>
+<button><a href="/offer/buy-and-sell">Buy & Sell</a></button>
+</section>
+
+<section class="offeritem-overview">
+   {{#each offers}}
+   <div> 
+   {{> offeritem}}
+   </div>
+   {{/each}}
+</section>
+
+<div class="btn-group-homepage pagination">
+  {{#if previousPage}}
+    <button><a href="/home?page={{previousPage}}">Previous</a></button>
+  {{/if}}
+  {{#if nextPage}}
+     <button><a href="/home?page={{nextPage}}">Next</a></button>
+  {{/if}}
+</div>

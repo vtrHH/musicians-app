@@ -20,14 +20,15 @@
 .card-custom {
   margin-top: 2.5rem;
   border: 3px solid $petrol;
-  height: 400px;
+  width: 20em;
+  height: 30.5em;
   border-radius: 2.5%;
   background-color: hsla(192, 0%, 79%, 0.7);
 }
 
 .card-img-custom {
-  width: 200px;
-  height: 170px;
+  width: 18em;
+  height: 15em;
   object-fit: cover;
   margin: 20px auto;
   border-radius: 5%;
@@ -43,13 +44,14 @@
 .card-body-custom {
   margin-top: 0;
   padding-top: 0;
+  margin-bottom: 0.5em;
 }
 
 .card-link-overview {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5em;
 }
 
 .card-link-custom {
@@ -66,15 +68,22 @@
 }
 
 .card-text-custom {
-  line-height: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-height: 1.2;
+  height: 3.6em;
 }
 
 .offer-header {
+  margin: 5em 20em;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   img {
     flex: 1;
+    margin-top: 1em;
     width: 15em;
     height: 15em;
     border-radius: 20%;

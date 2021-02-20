@@ -1,4 +1,14 @@
+<section class="page-header">
+   <h3>Oooops... There was an error</strong></h3>
+</section>
 
-<h1>{{message}}</h1>
-<h2>{{error.status}}</h2>
-<pre>{{error.stack}}</pre>
+<div class="form error-view">
+  <div> 
+    <img src="/images/error.png" alt="error">
+    <h2>Error-Status: {{error.status}}</h2>
+  </div>
+  
+  <h1>Error-Message: {{message}}</h1>
+  <pre>Error-Stack: {{error.stack}}</pre>
+</div>
+

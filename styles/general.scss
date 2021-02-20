@@ -149,3 +149,16 @@ label {
   margin-bottom: 0.5em;
   color: white;
 }
+
+.error-view {
+  text-align: center;
+  img {
+    width: 15em;
+    height: 15em;
+  }
+  h1,
+  h2,
+  pre {
+    color: white;
+  }
+}
