@@ -116,7 +116,7 @@ router.get('/:id/send-email', routeGuard, (req, res, next) => {
   Offer.findById(id)
     .populate('creator')
     .then((offer) => {
-      res.render('offer/contactform', { offer });
+      res.render('offer/contactform', { offer, subtitle: offer.title, });
     })
     .catch((error) => {
       next(error);
