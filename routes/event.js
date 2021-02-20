@@ -2,18 +2,18 @@
 
 const express = require('express');
 const router = new express.Router();
-const routeGuard = require('./../middleware/route-guard');
-const uploadMiddleware = require('./../middleware/file-upload');
+const routeGuard = require('../middleware/route-guard');
+const uploadMiddleware = require('../middleware/file-upload');
 const dotenv = require('dotenv');
 dotenv.config();
 const nodemailer = require('nodemailer');
 
-const Offer = require('./../models/offer');
-const User = require('./../models/user');
-const Comment = require('./../models/comment');
+const Event = require('./event');
+const User = require('../models/user');
+const Comment = require('../models/comment');
 
 router.get('/create', routeGuard, (req, res, next) => {
-  res.render('offer/create');
+  res.render('event/create');
 });
 
 router.post(
@@ -26,17 +26,15 @@ router.post(
     if (req.file) {
       image = req.file.path;
     }
-    Offer.create({
+    Event.create({
       title: data.title,
       image: image,
       description: data.description,
-      typeof: data.typeof,
-      condition: data.condition,
       url: data.url,
       creator: req.user._id
     })
-      .then((offer) => {
-        res.redirect(`/offer/${offer._id}`);
+      .then((event) => {
+        res.redirect(`/event/${event._id}`);
       })
       .catch((error) => {
         next(error);
@@ -45,7 +43,7 @@ router.post(
 );
 
 router.get('/events', routeGuard, (req, res, next) => {
-  Offer.find({ typeof: 'Event' })
+  Event.find({ typeof: 'Event' })
     .populate('creator')
     .sort({ creationDate: -1 })
     .then((offers) => {

@@ -13,6 +13,7 @@ const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js')
 const baseRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
 const offerRouter = require('./routes/offer');
+//const eventRouter = require('./routes/event');
 const userRouter = require('./routes/user');
 const locationRouter = require('./routes/location');
 const musicRouter = require('./routes/music');
@@ -68,6 +69,7 @@ app.use(bindUserToViewLocals);
 app.use('/', baseRouter);
 app.use('/authentication', authenticationRouter);
 app.use('/offer', offerRouter);
+//app.use('/event', eventRouter);
 app.use('/user', userRouter);
 app.use('/location', locationRouter);
 app.use('/music', musicRouter);
