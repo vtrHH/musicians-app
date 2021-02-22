@@ -21,6 +21,7 @@
     "helper-date": "^1.0.1",
     "http-errors": "^1.8.0",
     "leaflet": "^1.7.1",
+    "leaflet-geosearch": "^3.2.1",
     "mongoose": "^5.6.13",
     "mongoose-geojson-schema": "^2.1.5",
     "morgan": "^1.10.0",

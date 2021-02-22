@@ -6,12 +6,19 @@
     <label for="input-title">Title of your offer</label>
     <input type="text" id="input-title" name="title" required value="{{offer.title}}">
 
-    <label for="input-description">Description</label>
-    <textarea name="description" id="input-description"required>{{offer.description}}</textarea>
+    <label for="input-typeof">What do you want to offer</label>
+    <select name="typeof" id="input-typeof" required>
+        <option value="" selected disabled>Category</option>
+        <option value="service">Service</option>
+        <option value="event">Event</option>
+        <option value="item">Item</option>
+    </select>
 
+    <label for="input-description">Description</label>
+    <textarea name="description" id="input-description" required>{{offer.description}}</textarea>
    
-    <label for="input-condition">How is the condition?</label>
-    <select name="condition" id="input-condition" required>
+    <label for="input-condition">How is the condition (if it is an item)?</label>
+    <select name="condition" id="input-condition" >
         <option value="" selected disabled>Category</option>
         <option value="new">New</option>
         <option value="used">Used</option>

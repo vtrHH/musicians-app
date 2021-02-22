@@ -6,13 +6,21 @@
     <label for="input-title">Title of your offer</label>
     <input type="text" id="input-title" name="title" placeholder="Title of your item or service or event" required>
 
+    <label for="input-typeof">What do you want to offer</label>
+    <select name="typeof" id="input-typeof" required>
+        <option value="" selected disabled>Category</option>
+        <option value="Service">Service</option>
+        <option value="Event">Event</option>
+        <option value="Item">Item</option>
+    </select>
+
     <label for="input-description">Description</label>
     <textarea name="description" id="input-description" placeholder="Let us know more details about what you want to offer"required></textarea>
 
     <label for="input-image">Add your image (optional)</label>
     <input type="file" id="input-image" name="image" accept="image/png, image/jpeg">
    
-    <label for="input-condition">How is the condition?</label>
+    <label for="input-condition">How is the condition? (if it is a item)</label>
     <select name="condition" id="input-condition" required>
         <option value="" selected disabled>Category</option>
         <option value="new">New</option>

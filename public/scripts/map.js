@@ -2,7 +2,17 @@
 
 //////////////////// Initialise map, markers & popup ////////////////////
 var map = L.map('map').setView([51.505, -0.09], 13);
-let marker = L.marker();
+
+let myIcon = L.icon({
+  iconUrl: '/public/images/icon.png',
+  iconSize: [38, 95],
+  iconAnchor: [22, 94],
+  popupAnchor: [-3, -76],
+  shadowSize: [68, 95],
+  shadowAnchor: [22, 94]
+});
+
+let marker = L.marker({ icon: myIcon });
 let popup = L.popup();
 
 //////////////////// Adding the tile to the map ////////////////////
@@ -25,11 +35,13 @@ L.tileLayer(
 const data = locations.map((item) => {
   return {
     type: 'Feature',
-    geometry: item.location
+    geometry: item.location,
+    properties: {
+      name: item.name,
+      popupContent: 'item.name'
+    }
   };
 });
-
-console.log(data);
 L.geoJSON(data).addTo(map);
 
 //////////////////// Getting Location when clicking on map ////////////////////
