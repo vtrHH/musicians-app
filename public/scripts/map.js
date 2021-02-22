@@ -1,7 +1,7 @@
 'use strict';
 
 //////////////////// Initialise map, markers & popup ////////////////////
-var map = L.map('map').setView([51.505, -0.09], 13);
+let map = L.map('map').setView([51.505, -0.09], 13);
 
 let myIcon = L.icon({
   iconUrl: '/public/images/icon.png',
@@ -37,12 +37,25 @@ const data = locations.map((item) => {
     type: 'Feature',
     geometry: item.location,
     properties: {
-      name: item.name,
-      popupContent: 'item.name'
+      popupContent: item.name
     }
   };
 });
-L.geoJSON(data).addTo(map);
+
+console.log(data);
+
+function onEachFeature(feature, layer) {
+  if (feature.properties && feature.properties.popupContent) {
+    layer.bindPopup(
+      feature.properties.popupContent +
+        "<b>Blah blah Village</b><a href='http://www.cnn.com'>Test</a>"
+    );
+  }
+}
+
+L.geoJSON(data, {
+  onEachFeature: onEachFeature
+}).addTo(map);
 
 //////////////////// Getting Location when clicking on map ////////////////////
 function onMapClick(event) {
