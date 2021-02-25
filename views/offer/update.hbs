@@ -28,6 +28,15 @@
     <label for="input-url">URL</label>  
     <input type="url" id="input-url" name="url" placeholder="URL" value="{{offer.url}}">
 
+    <label for="input-status">Status</label>
+    <select name="status" id="input-status" required>
+        <option value="" selected disabled>Options</option>
+        <option value="For Sale">For Sale</option>
+        <option value="Sold">Sold</option>
+        <option value="Open">Open</option>
+        <option value="Ended">Ended</option>
+    </select>
+
     <button>Update your offer</button>
 
 </form>

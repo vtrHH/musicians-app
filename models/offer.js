@@ -28,10 +28,14 @@ const offerSchema = new mongoose.Schema(
     url: {
       type: String
     },
-    isActive: {
-      type: Boolean,
-      default: 'true'
-    },
+    status: {
+      type: String,
+      enum: ["For Sale", "Sold", "Open", "Ended"]
+  },
+    active:{
+    type: Boolean,
+    default: true
+  },
     creator: {
       type: mongoose.Types.ObjectId,
       ref: 'User'

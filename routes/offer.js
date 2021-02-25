@@ -33,6 +33,7 @@ router.post(
       typeof: data.typeof,
       condition: data.condition,
       url: data.url,
+      status:data.status,
       creator: req.user._id
     })
       .then((offer) => {
@@ -167,7 +168,8 @@ router.post('/:id/update', routeGuard, (req, res, next) => {
       title: data.title,
       description: data.description,
       condition: data.condition,
-      url: data.url
+      url: data.url,
+      status: data.status
     },
     { new: true, returnOriginal: true }
   )
